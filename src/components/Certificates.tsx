@@ -76,12 +76,12 @@ export default function Certificates() {
           05 / CREDENTIALS
         </span>
         <h2 className="text-4xl md:text-6xl text-white font-medium flex items-center gap-3">
-          <span className="text-3xl md:text-5xl animate-pulse">🌸</span>
+          <span className="text-3xl md:text-5xl animate-pulse">✨</span>
           Certificates &{" "}
           <span className="font-display font-display-serif italic text-gradient">
             Achievements
           </span>
-          <span className="text-3xl md:text-5xl animate-pulse">🌸</span>
+          <span className="text-3xl md:text-5xl animate-pulse">✨</span>
         </h2>
         <div className="w-16 h-[2px] bg-gradient-accent mt-4" />
       </motion.div>
@@ -170,14 +170,14 @@ export default function Certificates() {
           <div>
             {/* Header */}
             <div className="flex items-center gap-3 mb-8 border-b border-white/5 pb-6 text-left">
-                <div className="w-10 h-10 rounded-xl bg-pink-500/10 border border-pink-500/20 flex items-center justify-center">
-                  <Trophy className="w-5 h-5 text-pink-accent animate-pulse" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-white text-lg leading-tight">Key Achievements</h3>
-                  <span className="text-[10px] font-mono text-white/40 uppercase">HONORS & AWARDS</span>
-                </div>
+              <div className="w-10 h-10 rounded-xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center">
+                <Trophy className="w-5 h-5 text-pink-accent animate-pulse" />
               </div>
+              <div>
+                <h3 className="font-bold text-white text-lg leading-tight">Key Achievements</h3>
+                <span className="text-[10px] font-mono text-white/40 uppercase">HONORS & AWARDS</span>
+              </div>
+            </div>
 
             {/* Achievements Items List */}
             <div className="space-y-8 text-left">
@@ -190,7 +190,7 @@ export default function Certificates() {
                     <h4 className="font-bold text-white leading-snug group-hover/ach:text-pink-accent transition-colors">
                       {ach.title}
                     </h4>
-                    <span className="text-[9px] font-mono tracking-widest text-pink-accent uppercase bg-pink-500/10 px-2 py-0.5 rounded-md border border-pink-500/15">
+                    <span className="text-[9px] font-mono tracking-widest text-pink-accent uppercase bg-teal-500/10 px-2 py-0.5 rounded-md border border-teal-500/20">
                       {ach.badge}
                     </span>
                   </div>

@@ -143,13 +143,13 @@ export default function SkillChart({ skillName, category, percent }: SkillChartP
       {/* Diagnostics Header */}
       <div className="flex items-center justify-between border-b border-white/10 pb-3">
         <div className="flex items-center gap-2">
-          <div className="w-2.5 h-2.5 rounded-full bg-pink-500 animate-ping" />
-          <span className="text-[10px] font-mono tracking-widest text-pink-400 font-extrabold uppercase">
+          <div className="w-2.5 h-2.5 rounded-full bg-teal-500 animate-ping" />
+          <span className="text-[10px] font-mono tracking-widest text-teal-400 font-extrabold uppercase">
             SYSTEM TELEMETRY DIAGNOSTIC
           </span>
         </div>
         <div className="flex items-center gap-1.5 text-[10px] font-mono text-white/40">
-          <Activity className="w-3.5 h-3.5 text-pink-400" />
+          <Activity className="w-3.5 h-3.5 text-teal-400" />
           <span>REALTIME FEED</span>
         </div>
       </div>
@@ -160,13 +160,13 @@ export default function SkillChart({ skillName, category, percent }: SkillChartP
           <div className="text-left">
             <h5 className="text-[11px] font-mono text-white/40 uppercase tracking-wider">Proficiency Level</h5>
             <span className="text-xl font-black font-sans text-white tracking-tight flex items-baseline gap-1">
-              {percent}% <span className="text-xs font-mono font-medium text-pink-400">// {percent >= 90 ? "Expert" : "Intermediate"}</span>
+              {percent}% <span className="text-xs font-mono font-medium text-teal-400">// {percent >= 90 ? "Expert" : "Intermediate"}</span>
             </span>
           </div>
 
           {hoveredPoint && (
-            <div className="text-right text-[10px] font-mono bg-pink-500/10 border border-pink-500/25 px-2.5 py-1 rounded-lg">
-              <span className="text-white font-bold">{hoveredPoint.year}</span>: <span className="text-pink-400 font-extrabold">{hoveredPoint.value}%</span>
+            <div className="text-right text-[10px] font-mono bg-teal-500/10 border border-teal-500/25 px-2.5 py-1 rounded-lg">
+              <span className="text-white font-bold">{hoveredPoint.year}</span>: <span className="text-teal-400 font-extrabold">{hoveredPoint.value}%</span>
             </div>
           )}
         </div>
@@ -181,17 +181,17 @@ export default function SkillChart({ skillName, category, percent }: SkillChartP
             className="overflow-visible"
           >
             <defs>
-              {/* Premium pink glowing line gradient */}
+              {/* Premium teal & cyan glowing line gradient */}
               <linearGradient id="chart-glow-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#EC4899" />
-                <stop offset="50%" stopColor="#F43F5E" />
-                <stop offset="100%" stopColor="#FB7185" />
+                <stop offset="0%" stopColor="#14B8A6" />
+                <stop offset="50%" stopColor="#06B6D4" />
+                <stop offset="100%" stopColor="#38BDF8" />
               </linearGradient>
 
               {/* Translucent fill gradient */}
               <linearGradient id="area-fill-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#EC4899" stopOpacity="0.25" />
-                <stop offset="100%" stopColor="#EC4899" stopOpacity="0.0" />
+                <stop offset="0%" stopColor="#14B8A6" stopOpacity="0.25" />
+                <stop offset="100%" stopColor="#14B8A6" stopOpacity="0.0" />
               </linearGradient>
 
               {/* Drop Shadow filter for point highlights */}
@@ -216,7 +216,7 @@ export default function SkillChart({ skillName, category, percent }: SkillChartP
               stroke="url(#chart-glow-gradient)"
               strokeWidth="2.5"
               strokeLinecap="round"
-              className="drop-shadow-[0_0_8px_rgba(236,72,153,0.4)]"
+              className="drop-shadow-[0_0_8px_rgba(20,184,166,0.4)]"
             />
 
             {/* Interactive Grid Dots */}
@@ -241,7 +241,7 @@ export default function SkillChart({ skillName, category, percent }: SkillChartP
                     cy={p.cy}
                     r={isHovered ? 7.5 : 5}
                     fill="none"
-                    stroke={isHovered ? "#FB7185" : "#EC4899"}
+                    stroke={isHovered ? "#38BDF8" : "#14B8A6"}
                     strokeWidth={isHovered ? 3 : 1.5}
                     className="transition-all duration-200 pointer-events-none"
                     style={{ filter: isHovered ? "url(#neon-glow)" : "none" }}
@@ -274,14 +274,14 @@ export default function SkillChart({ skillName, category, percent }: SkillChartP
       {/* Tech Ecosystem Hub */}
       <div>
         <h5 className="text-[10px] font-mono text-white/40 uppercase tracking-widest mb-2 flex items-center gap-1.5">
-          <Zap className="w-3.5 h-3.5 text-pink-400" />
+          <Zap className="w-3.5 h-3.5 text-teal-400" />
           RELATED TECH ECOSYSTEMS
         </h5>
         <div className="flex flex-wrap gap-1.5">
           {ecosystem.map((tech) => (
             <span
               key={tech}
-              className="text-[9.5px] font-mono bg-pink-500/5 text-pink-300 border border-pink-500/10 hover:border-pink-500/25 px-2.5 py-1 rounded-xl transition-all"
+              className="text-[9.5px] font-mono bg-teal-500/10 text-teal-300 border border-teal-500/20 hover:border-teal-500/35 px-2.5 py-1 rounded-xl transition-all"
             >
               {tech}
             </span>

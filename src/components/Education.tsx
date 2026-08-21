@@ -52,12 +52,12 @@ export default function Education() {
           02 / EDUCATION
         </span>
         <h2 className="text-4xl md:text-6xl text-white font-medium flex items-center gap-3">
-          <span className="text-3xl md:text-5xl animate-pulse">🌸</span>
+          <span className="text-3xl md:text-5xl animate-pulse">✨</span>
           Education{" "}
           <span className="font-display font-display-serif italic text-gradient">
             History
           </span>
-          <span className="text-3xl md:text-5xl animate-pulse">🌸</span>
+          <span className="text-3xl md:text-5xl animate-pulse">✨</span>
         </h2>
         <div className="w-16 h-[2px] bg-gradient-accent mt-4" />
       </motion.div>
@@ -131,8 +131,8 @@ export default function Education() {
 
                     {/* Status Pill */}
                     <span className={`text-[10px] font-mono font-bold uppercase px-2.5 py-1 rounded-full flex items-center gap-1 border ${isPursuing
-                        ? "bg-purple-500/10 text-purple-accent border-purple-500/20"
-                        : "bg-pink-500/10 text-pink-accent border-pink-500/20"
+                      ? "bg-purple-accent/10 text-purple-accent border-purple-accent/20"
+                      : "bg-teal-500/10 text-pink-accent border-teal-500/20"
                       }`}>
                       {isPursuing ? <Clock className="w-3 h-3" /> : <CheckCircle className="w-3 h-3" />}
                       {item.status}

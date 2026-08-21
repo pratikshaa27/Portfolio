@@ -39,7 +39,7 @@ export default function Footer({ onNavClick }: FooterProps) {
               PRATIKSHA KHANDBAHALE
             </span>
           </button>
-          
+
           <p className="text-xs text-white/40 font-mono flex items-center gap-1.5 justify-center md:justify-start">
             <Terminal className="w-3.5 h-3.5 text-purple-accent" />
             Designed & Developed by Pratiksha Khandbahale

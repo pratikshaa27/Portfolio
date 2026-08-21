@@ -116,7 +116,7 @@ export default function App() {
       {/* Premium Loader */}
       <Loader onComplete={() => setIsLoading(false)} />
 
-       {/* Main Portfolio System Container */}
+      {/* Main Portfolio System Container */}
       {!isLoading && (
         <div className="relative min-h-screen text-text select-none selection:bg-purple-accent/30 selection:text-white transition-opacity duration-1000 animate-[fadeIn_0.8s_ease_out]">
           {/* Small Pink Custom Cursor Follower */}

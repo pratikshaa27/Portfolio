@@ -96,23 +96,23 @@ export default function CustomCursor() {
 
   if (!isVisible) return null;
 
-  // Micro-small pink cursor styles
+  // Micro-small teal cursor styles
   const getCursorStyle = () => {
     switch (hoverState) {
       case "click":
         return {
           width: 8,
           height: 8,
-          backgroundColor: "rgba(236, 72, 153, 0.8)",
-          borderColor: "#EC4899",
+          backgroundColor: "rgba(20, 184, 166, 0.8)",
+          borderColor: "#14B8A6",
           borderWidth: "1px",
         };
       case "hover":
         return {
           width: 20,
           height: 20,
-          backgroundColor: "rgba(236, 72, 153, 0.08)",
-          borderColor: "#EC4899",
+          backgroundColor: "rgba(20, 184, 166, 0.08)",
+          borderColor: "#14B8A6",
           borderWidth: "1px",
         };
       case "text":
@@ -120,7 +120,7 @@ export default function CustomCursor() {
           width: 2,
           height: 14,
           borderRadius: "1px",
-          backgroundColor: "#EC4899",
+          backgroundColor: "#14B8A6",
           borderColor: "transparent",
           borderWidth: "0px",
         };
@@ -128,8 +128,8 @@ export default function CustomCursor() {
         return {
           width: 24,
           height: 24,
-          backgroundColor: "rgba(236, 72, 153, 0.1)",
-          borderColor: "#EC4899",
+          backgroundColor: "rgba(20, 184, 166, 0.1)",
+          borderColor: "#14B8A6",
           borderWidth: "1px",
         };
       case "default":
@@ -138,7 +138,7 @@ export default function CustomCursor() {
           width: 12,
           height: 12,
           backgroundColor: "transparent",
-          borderColor: "rgba(236, 72, 153, 0.4)",
+          borderColor: "rgba(45, 212, 191, 0.5)",
           borderWidth: "1px",
         };
     }
@@ -169,9 +169,9 @@ export default function CustomCursor() {
         transition={{ type: "spring", stiffness: 400, damping: 28 }}
       />
 
-      {/* Inner Pink Dot */}
+      {/* Inner Teal Dot */}
       <motion.div
-        className="fixed top-0 left-0 w-1 h-1 bg-pink-500 rounded-full pointer-events-none z-[10000] hidden md:block"
+        className="fixed top-0 left-0 w-1 h-1 bg-teal-400 rounded-full pointer-events-none z-[10000] hidden md:block shadow-[0_0_8px_#2dd4bf]"
         style={{
           x: cursorX,
           y: cursorY,

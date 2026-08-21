@@ -175,7 +175,7 @@ const PinkWireframeGlobe = ({ progress = 0 }: { progress: number }) => {
           }
         }
         const alpha = glowIntensity + (lon / lonBands) * 0.25;
-        ctx.strokeStyle = `rgba(244, 63, 94, ${alpha})`;
+        ctx.strokeStyle = `rgba(6, 182, 212, ${alpha})`;
         ctx.lineWidth = 0.8;
         ctx.stroke();
       }
@@ -193,9 +193,9 @@ const PinkWireframeGlobe = ({ progress = 0 }: { progress: number }) => {
         }
       }
       const eqGlow = 0.4 + (progressRef.current / 100) * 0.5;
-      ctx.strokeStyle = `rgba(236, 72, 153, ${eqGlow})`;
+      ctx.strokeStyle = `rgba(20, 184, 166, ${eqGlow})`;
       ctx.lineWidth = 1.5 + (progressRef.current / 100) * 0.8;
-      ctx.shadowColor = "#ec4899";
+      ctx.shadowColor = "#14b8a6";
       ctx.shadowBlur = 10 + (progressRef.current / 100) * 15;
       ctx.stroke();
       ctx.shadowBlur = 0;
@@ -215,12 +215,12 @@ const PinkWireframeGlobe = ({ progress = 0 }: { progress: number }) => {
 
   return (
     <div className="relative w-56 h-56 flex items-center justify-center my-6">
-      {/* Centered Initials with pink glow */}
+      {/* Centered Initials with teal glow */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <span
-          className="text-3xl font-black tracking-widest font-display drop-shadow-[0_0_20px_rgba(236,72,153,0.6)]"
+          className="text-3xl font-black tracking-widest font-display drop-shadow-[0_0_20px_rgba(20,184,166,0.6)]"
           style={{
-            background: "linear-gradient(to bottom, #fff 30%, #f472b6 100%)",
+            background: "linear-gradient(to bottom, #fff 30%, #5eead4 100%)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
           }}
@@ -228,7 +228,7 @@ const PinkWireframeGlobe = ({ progress = 0 }: { progress: number }) => {
           PK
         </span>
       </div>
-      <canvas ref={canvasRef} className="w-56 h-56 drop-shadow-[0_0_30px_rgba(236,72,153,0.3)]" />
+      <canvas ref={canvasRef} className="w-56 h-56 drop-shadow-[0_0_30px_rgba(20,184,166,0.3)]" />
     </div>
   );
 };
@@ -310,14 +310,14 @@ export default function Loader({ onComplete }: LoaderProps) {
             ease: [0.76, 0, 0.24, 1],
           } : undefined}
           style={{
-            background: `radial-gradient(circle at 50% 50%, rgba(236, 72, 153, ${0.06 + (count / 100) * 0.18}) 0%, rgba(244, 63, 94, ${0.02 + (count / 100) * 0.08}) 40%, #0a0710 100%)`,
+            background: `radial-gradient(circle at 50% 50%, rgba(20, 184, 166, ${0.06 + (count / 100) * 0.18}) 0%, rgba(6, 182, 212, ${0.02 + (count / 100) * 0.08}) 40%, #060e11 100%)`,
             borderBottomLeftRadius: "0%",
             borderBottomRightRadius: "0%",
           }}
           className="fixed inset-0 z-[9999] flex flex-col justify-between p-8 md:p-16 select-none overflow-hidden"
         >
           {/* Subtle Grid overlay for high-tech aesthetic */}
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(236,72,153,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(236,72,153,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(20,184,166,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(20,184,166,0.03)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
 
           {/* ─── Content that scales up and blurs on exit (21st.dev Preloader pattern) ─── */}
           <motion.div
@@ -345,15 +345,15 @@ export default function Loader({ onComplete }: LoaderProps) {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
               >
-                <span className="text-xs font-mono tracking-[0.3em] text-pink-400 uppercase font-bold">
+                <span className="text-xs font-mono tracking-[0.3em] text-teal-400 uppercase font-bold">
                   PRATIKSHA KHANDBAHALE
                 </span>
-                <span className="text-[9px] font-mono text-pink-300/30 tracking-widest uppercase mt-1">
+                <span className="text-[9px] font-mono text-cyan-300/40 tracking-widest uppercase mt-1">
                   Creative Portfolio Initializing
                 </span>
               </motion.div>
               <motion.div
-                className="text-right font-mono text-[9px] text-pink-300/30 tracking-widest hidden sm:block"
+                className="text-right font-mono text-[9px] text-cyan-300/40 tracking-widest hidden sm:block"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
@@ -371,9 +371,9 @@ export default function Loader({ onComplete }: LoaderProps) {
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  className="absolute w-[280px] h-[280px] sm:w-[420px] sm:h-[420px] border border-dashed border-pink-500/15 rounded-full"
+                  className="absolute w-[280px] h-[280px] sm:w-[420px] sm:h-[420px] border border-dashed border-teal-500/15 rounded-full"
                   style={{
-                    boxShadow: `0 0 ${10 + (count / 100) * 20}px rgba(236, 72, 153, ${0.05 + (count / 100) * 0.1})`,
+                    boxShadow: `0 0 ${10 + (count / 100) * 20}px rgba(20, 184, 166, ${0.05 + (count / 100) * 0.1})`,
                   }}
                 />
                 
@@ -381,22 +381,22 @@ export default function Loader({ onComplete }: LoaderProps) {
                 <motion.div
                   animate={{ rotate: -360 }}
                   transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-                  className="absolute w-[220px] h-[220px] sm:w-[320px] sm:h-[320px] border border-pink-500/10 rounded-full flex items-center justify-center"
+                  className="absolute w-[220px] h-[220px] sm:w-[320px] sm:h-[320px] border border-teal-500/15 rounded-full flex items-center justify-center"
                   style={{
-                    borderColor: `rgba(236, 72, 153, ${0.1 + (count / 100) * 0.2})`,
-                    boxShadow: `0 0 ${8 + (count / 100) * 15}px rgba(236, 72, 153, ${0.05 + (count / 100) * 0.1})`,
+                    borderColor: `rgba(20, 184, 166, ${0.1 + (count / 100) * 0.2})`,
+                    boxShadow: `0 0 ${8 + (count / 100) * 15}px rgba(20, 184, 166, ${0.05 + (count / 100) * 0.1})`,
                   }}
                 >
                   <div
-                    className="absolute top-0 w-2.5 h-2.5 bg-pink-400 rounded-full"
+                    className="absolute top-0 w-2.5 h-2.5 bg-teal-400 rounded-full"
                     style={{
-                      boxShadow: `0 0 ${15 + (count / 100) * 10}px rgba(236, 72, 153, 0.9)`,
+                      boxShadow: `0 0 ${15 + (count / 100) * 10}px rgba(45, 212, 191, 0.9)`,
                     }}
                   />
                   <div
-                    className="absolute bottom-0 w-2 h-2 bg-rose-400 rounded-full"
+                    className="absolute bottom-0 w-2 h-2 bg-cyan-400 rounded-full"
                     style={{
-                      boxShadow: `0 0 ${12 + (count / 100) * 10}px rgba(244, 63, 94, 0.9)`,
+                      boxShadow: `0 0 ${12 + (count / 100) * 10}px rgba(6, 182, 212, 0.9)`,
                     }}
                   />
                 </motion.div>
@@ -405,16 +405,16 @@ export default function Loader({ onComplete }: LoaderProps) {
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                  className="absolute w-[160px] h-[160px] sm:w-[220px] sm:h-[220px] border border-pink-500/10 rounded-full flex items-center justify-center"
+                  className="absolute w-[160px] h-[160px] sm:w-[220px] sm:h-[220px] border border-teal-500/15 rounded-full flex items-center justify-center"
                   style={{
-                    borderColor: `rgba(236, 72, 153, ${0.1 + (count / 100) * 0.15})`,
-                    background: `radial-gradient(circle, rgba(236, 72, 153, ${0.06 + (count / 100) * 0.08}) 0%, transparent 70%)`,
+                    borderColor: `rgba(20, 184, 166, ${0.1 + (count / 100) * 0.15})`,
+                    background: `radial-gradient(circle, rgba(20, 184, 166, ${0.06 + (count / 100) * 0.08}) 0%, transparent 70%)`,
                   }}
                 >
                   <div
-                    className="absolute right-0 w-2 h-2 bg-pink-500 rounded-full"
+                    className="absolute right-0 w-2 h-2 bg-teal-300 rounded-full"
                     style={{
-                      boxShadow: `0 0 ${12 + (count / 100) * 10}px rgba(236, 72, 153, 0.9)`,
+                      boxShadow: `0 0 ${12 + (count / 100) * 10}px rgba(45, 212, 191, 0.9)`,
                     }}
                   />
                 </motion.div>
@@ -431,7 +431,7 @@ export default function Loader({ onComplete }: LoaderProps) {
                   <h1 className="text-4xl sm:text-5xl md:text-6xl text-center uppercase tracking-tight">
                     <span
                       style={{
-                        background: "linear-gradient(135deg, #ec4899 0%, #f43f5e 50%, #fb7185 100%)",
+                        background: "linear-gradient(135deg, #14b8a6 0%, #06b6d4 50%, #38bdf8 100%)",
                         WebkitBackgroundClip: "text",
                         WebkitTextFillColor: "transparent",
                       }}
@@ -443,7 +443,7 @@ export default function Loader({ onComplete }: LoaderProps) {
               </div>
               
               <motion.div
-                className="text-[9px] font-mono tracking-[0.25em] text-pink-400/40 uppercase mt-4 z-20"
+                className="text-[9px] font-mono tracking-[0.25em] text-teal-400/40 uppercase mt-4 z-20"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
@@ -456,7 +456,7 @@ export default function Loader({ onComplete }: LoaderProps) {
             <div className="w-full max-w-lg mx-auto flex flex-col gap-4 relative z-10">
               <div className="flex justify-between items-baseline font-mono">
                 <motion.span
-                  className="text-[10px] tracking-[0.2em] text-pink-400/40 font-semibold"
+                  className="text-[10px] tracking-[0.2em] text-teal-400/50 font-semibold"
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.2 }}
@@ -468,7 +468,7 @@ export default function Loader({ onComplete }: LoaderProps) {
                 <span className="text-3xl sm:text-4xl font-black font-sans tracking-tighter">
                   <span
                     style={{
-                      background: "linear-gradient(to bottom, #fff 20%, #ec4899 100%)",
+                      background: "linear-gradient(to bottom, #fff 20%, #2dd4bf 100%)",
                       WebkitBackgroundClip: "text",
                       WebkitTextFillColor: "transparent",
                       perspective: "200px",
@@ -479,18 +479,18 @@ export default function Loader({ onComplete }: LoaderProps) {
                       <RollingDigit key={i} digit={digit} index={i} />
                     ))}
                   </span>
-                  <span className="text-xs text-pink-400/40 ml-1 font-mono font-medium">%</span>
+                  <span className="text-xs text-teal-400/50 ml-1 font-mono font-medium">%</span>
                 </span>
               </div>
 
               {/* Progress Bar Container */}
-              <div className="relative w-full h-[3px] bg-pink-500/10 rounded-full overflow-hidden">
+              <div className="relative w-full h-[3px] bg-teal-500/15 rounded-full overflow-hidden">
                 <motion.div
                   className="h-full rounded-full relative"
                   style={{
                     width: `${count}%`,
-                    background: "linear-gradient(90deg, #ec4899, #f43f5e, #fb7185)",
-                    boxShadow: `0 0 ${15 + (count / 100) * 20}px rgba(236, 72, 153, ${0.3 + (count / 100) * 0.4}), 0 0 ${30 + (count / 100) * 20}px rgba(236, 72, 153, ${0.1 + (count / 100) * 0.2})`,
+                    background: "linear-gradient(90deg, #14b8a6, #06b6d4, #38bdf8)",
+                    boxShadow: `0 0 ${15 + (count / 100) * 20}px rgba(20, 184, 166, ${0.3 + (count / 100) * 0.4}), 0 0 ${30 + (count / 100) * 20}px rgba(6, 182, 212, ${0.1 + (count / 100) * 0.2})`,
                   }}
                   transition={{ ease: "easeOut" }}
                 >
@@ -503,7 +503,7 @@ export default function Loader({ onComplete }: LoaderProps) {
                 </motion.div>
               </div>
 
-              <div className="flex justify-between text-[9px] font-mono text-pink-400/25 tracking-wider">
+              <div className="flex justify-between text-[9px] font-mono text-teal-400/35 tracking-wider">
                 <motion.span
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}

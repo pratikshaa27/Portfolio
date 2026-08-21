@@ -74,7 +74,7 @@ export default function Navbar({ activeSection, onNavClick, theme, onToggleTheme
             </span>
           </button>
 
-          {/* Desktop Navigation Links with Animated Pink Underline */}
+          {/* Desktop Navigation Links with Animated Teal Underline */}
           <div className="hidden lg:flex items-center gap-1.5">
             {navItems.map((item) => {
               const isActive = activeSection === item.id;
@@ -83,20 +83,20 @@ export default function Navbar({ activeSection, onNavClick, theme, onToggleTheme
                   key={item.id}
                   onClick={() => handleItemClick(item.id)}
                   className={`relative px-4 py-1.5 text-xs font-medium tracking-wide transition-colors duration-200 cursor-pointer group ${
-                    isActive ? "text-pink-400 font-bold drop-shadow-[0_0_8px_rgba(236,72,153,0.4)]" : "text-white/75 hover:text-pink-400"
+                    isActive ? "text-teal-400 font-bold drop-shadow-[0_0_8px_rgba(20,184,166,0.4)]" : "text-white/75 hover:text-teal-400"
                   }`}
                 >
                   <span className="relative z-10">{item.label}</span>
 
-                  {/* Animated Active / Hover Pink Underline Bar */}
+                  {/* Animated Active / Hover Teal Underline Bar */}
                   {isActive ? (
                     <motion.span
                       layoutId="navActiveUnderline"
-                      className="absolute left-2 right-2 bottom-0.5 h-[2px] bg-pink-400 rounded-full shadow-[0_0_12px_#ec4899]"
+                      className="absolute left-2 right-2 bottom-0.5 h-[2px] bg-teal-400 rounded-full shadow-[0_0_12px_#14b8a6]"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   ) : (
-                    <span className="absolute left-2 right-2 bottom-0.5 w-0 h-[2px] bg-pink-400 rounded-full transition-all duration-300 group-hover:w-[calc(100%-16px)] shadow-[0_0_8px_rgba(236,72,153,0.6)]" />
+                    <span className="absolute left-2 right-2 bottom-0.5 w-0 h-[2px] bg-teal-400 rounded-full transition-all duration-300 group-hover:w-[calc(100%-16px)] shadow-[0_0_8px_rgba(20,184,166,0.6)]" />
                   )}
                 </button>
               );
@@ -108,13 +108,13 @@ export default function Navbar({ activeSection, onNavClick, theme, onToggleTheme
             {/* Theme Toggle Button */}
             <button
               onClick={onToggleTheme}
-              className="p-2 rounded-full border border-white/10 hover:bg-pink-500/20 text-white hover:border-pink-500/30 transition-all cursor-pointer flex items-center justify-center bg-white/5 backdrop-blur-md shadow-inner"
+              className="p-2 rounded-full border border-white/10 hover:bg-teal-500/20 text-white hover:border-teal-500/30 transition-all cursor-pointer flex items-center justify-center bg-white/5 backdrop-blur-md shadow-inner"
               aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
             >
               {theme === "dark" ? (
-                <Sun className="w-4 h-4 text-pink-400" />
+                <Sun className="w-4 h-4 text-teal-400" />
               ) : (
-                <Moon className="w-4 h-4 text-pink-400" />
+                <Moon className="w-4 h-4 text-teal-400" />
               )}
             </button>
 
@@ -124,7 +124,7 @@ export default function Navbar({ activeSection, onNavClick, theme, onToggleTheme
                 onClick={() => handleItemClick("contact")}
                 className="relative px-4 py-1.5 rounded-full text-xs font-medium tracking-wider text-white overflow-hidden group cursor-pointer shadow-lg backdrop-blur-md"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-pink-500 via-rose-500 to-pink-500 rounded-full opacity-90 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute inset-0 bg-gradient-to-r from-teal-500 via-cyan-500 to-teal-400 rounded-full opacity-90 group-hover:opacity-100 transition-opacity" />
                 <span className="relative z-10 font-bold">Connect</span>
               </button>
             </div>

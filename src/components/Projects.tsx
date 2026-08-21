@@ -60,39 +60,39 @@ const getProjectDetails = (id: string, category: string) => {
     case "proj_4":
       return {
         icon: BrainCircuit,
-        glow: "hover:shadow-purple-500/20",
-        border: "hover:border-purple-500/30",
-        gradient: "from-purple-500/10 via-indigo-500/5 to-pink-500/10",
-        accent: "text-purple-accent border-purple-500/20 bg-purple-500/10",
-        glowColor: "rgba(167, 139, 250, 0.15)",
+        glow: "hover:shadow-teal-500/20",
+        border: "hover:border-teal-500/30",
+        gradient: "from-teal-500/10 via-cyan-500/5 to-teal-500/10",
+        accent: "text-purple-accent border-teal-500/20 bg-teal-500/10",
+        glowColor: "rgba(20, 184, 166, 0.15)",
       };
     case "proj_1":
       return {
         icon: Globe,
-        glow: "hover:shadow-pink-500/20",
-        border: "hover:border-pink-500/30",
-        gradient: "from-pink-500/10 via-rose-500/5 to-pink-400/10",
-        accent: "text-pink-accent border-pink-500/20 bg-pink-500/10",
-        glowColor: "rgba(236, 72, 153, 0.15)",
+        glow: "hover:shadow-teal-400/20",
+        border: "hover:border-teal-400/30",
+        gradient: "from-teal-500/10 via-cyan-500/5 to-sky-400/10",
+        accent: "text-pink-accent border-teal-400/20 bg-teal-400/10",
+        glowColor: "rgba(45, 212, 191, 0.15)",
       };
     case "proj_2":
       return {
         icon: Sparkles,
-        glow: "hover:shadow-rose-500/20",
-        border: "hover:border-rose-500/30",
-        gradient: "from-rose-500/10 via-pink-500/5 to-rose-500/10",
-        accent: "text-blue-accent border-rose-500/20 bg-rose-500/10",
-        glowColor: "rgba(244, 63, 94, 0.15)",
+        glow: "hover:shadow-cyan-500/20",
+        border: "hover:border-cyan-500/30",
+        gradient: "from-cyan-500/10 via-teal-500/5 to-sky-500/10",
+        accent: "text-blue-accent border-cyan-500/20 bg-cyan-500/10",
+        glowColor: "rgba(6, 182, 212, 0.15)",
       };
     case "proj_3":
     default:
       return {
         icon: Shield,
-        glow: "hover:shadow-pink-400/20",
-        border: "hover:border-pink-400/30",
-        gradient: "from-pink-500/10 via-purple-500/5 to-pink-500/10",
-        accent: "text-pink-accent border-pink-400/20 bg-pink-400/10",
-        glowColor: "rgba(251, 113, 133, 0.15)",
+        glow: "hover:shadow-sky-400/20",
+        border: "hover:border-sky-400/30",
+        gradient: "from-teal-500/10 via-cyan-500/5 to-teal-400/10",
+        accent: "text-pink-accent border-sky-400/20 bg-sky-400/10",
+        glowColor: "rgba(56, 189, 248, 0.15)",
       };
   }
 };
@@ -209,12 +209,12 @@ export default function Projects() {
           04 / SHOWCASE
         </span>
         <h2 className="text-4xl md:text-6xl text-white font-medium flex items-center gap-3">
-          <span className="text-3xl md:text-5xl animate-pulse">🌸</span>
+          <span className="text-3xl md:text-5xl animate-pulse">✨</span>
           Featured{" "}
           <span className="font-display font-display-serif italic text-gradient">
             Projects
           </span>
-          <span className="text-3xl md:text-5xl animate-pulse">🌸</span>
+          <span className="text-3xl md:text-5xl animate-pulse">✨</span>
         </h2>
         <div className="w-16 h-[2px] bg-gradient-accent mt-4" />
       </motion.div>
@@ -231,8 +231,8 @@ export default function Projects() {
                 setActiveIndex(0);
               }}
               className={`px-4 py-2 rounded-full text-xs font-mono tracking-wider transition-all duration-300 cursor-pointer ${isSelected
-                  ? "bg-gradient-to-r from-pink-500 via-rose-500 to-pink-500 text-white shadow-[0_0_20px_rgba(236,72,153,0.4)] border border-pink-400 font-bold"
-                  : "bg-white text-slate-800 border border-slate-200/80 hover:border-pink-400 hover:text-pink-600 shadow-sm font-semibold"
+                  ? "bg-gradient-to-r from-teal-500 via-cyan-500 to-teal-500 text-white shadow-[0_0_20px_rgba(20,184,166,0.4)] border border-teal-400 font-bold"
+                  : "bg-white text-slate-800 border border-slate-200/80 hover:border-teal-400 hover:text-teal-600 shadow-sm font-semibold"
                 }`}
             >
               {cat}

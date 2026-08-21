@@ -70,12 +70,12 @@ export default function About() {
       <motion.div
         animate={{ rotate: 360 }}
         transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-        className="absolute top-1/4 right-0 w-[450px] h-[450px] bg-gradient-to-tr from-pink-500/5 to-purple-500/5 rounded-full blur-[120px] pointer-events-none -z-10"
+        className="absolute top-1/4 right-0 w-[450px] h-[450px] bg-gradient-to-tr from-teal-500/5 to-cyan-500/5 rounded-full blur-[120px] pointer-events-none -z-10"
       />
       <motion.div
         animate={{ rotate: -360 }}
         transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-        className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-purple-500/5 to-pink-500/5 rounded-full blur-[120px] pointer-events-none -z-10"
+        className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-cyan-500/5 to-teal-500/5 rounded-full blur-[120px] pointer-events-none -z-10"
       />
 
       {/* Title */}
@@ -90,12 +90,12 @@ export default function About() {
           01 / PROFILE
         </span>
         <h2 className="text-4xl md:text-6xl text-white font-medium flex items-center gap-3">
-          <span className="text-3xl md:text-5xl animate-pulse">🌸</span>
+          <span className="text-3xl md:text-5xl animate-pulse">✨</span>
           About{" "}
           <span className="font-display font-display-serif italic text-gradient">
             Me
           </span>
-          <span className="text-3xl md:text-5xl animate-pulse">🌸</span>
+          <span className="text-3xl md:text-5xl animate-pulse">✨</span>
         </h2>
         <div className="w-16 h-[2px] bg-gradient-accent mt-4" />
       </motion.div>
@@ -109,7 +109,7 @@ export default function About() {
           transition={{ duration: 0.8 }}
           className="lg:col-span-7"
         >
-          <SpotlightCard className="p-8 md:p-10 flex flex-col justify-between h-full" spotlightColor="rgba(236, 72, 153, 0.05)" borderColor="rgba(236, 72, 153, 0.25)">
+          <SpotlightCard className="p-8 md:p-10 flex flex-col justify-between h-full" spotlightColor="rgba(20, 184, 166, 0.08)" borderColor="rgba(45, 212, 191, 0.25)">
             {/* Subtle watermark background */}
             <div className="absolute right-6 top-8 text-white/5 font-mono text-8xl font-bold select-none pointer-events-none">
               01
@@ -118,12 +118,12 @@ export default function About() {
             <div>
               {/* Header style */}
               <div className="flex items-center gap-3 mb-8 border-b border-white/10 pb-6">
-                <div className="w-10 h-10 rounded-xl bg-purple-500/15 border border-purple-500/30 flex items-center justify-center">
-                  <GraduationCap className="w-5 h-5 text-purple-400" />
+                <div className="w-10 h-10 rounded-xl bg-teal-500/15 border border-teal-500/30 flex items-center justify-center">
+                  <GraduationCap className="w-5 h-5 text-teal-400" />
                 </div>
                 <div>
                   <h3 className="font-bold text-white text-lg leading-tight">Executive Profile</h3>
-                  <span className="text-[10px] font-mono text-purple-300 uppercase tracking-widest">21ST.DEV CERTIFIED</span>
+                  <span className="text-[10px] font-mono text-teal-300 uppercase tracking-widest">21ST.DEV CERTIFIED</span>
                 </div>
               </div>
 
@@ -143,8 +143,8 @@ export default function About() {
 
             {/* Footer of the statement card */}
             <div className="mt-10 pt-6 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-white/40">
-              <span className="flex items-center gap-1.5 text-purple-400">
-                <Heart className="w-3.5 h-3.5 fill-purple-500/20 text-purple-400" /> Passion driven development.
+              <span className="flex items-center gap-1.5 text-purple-accent">
+                <Heart className="w-3.5 h-3.5 fill-purple-accent/20 text-purple-accent" /> Passion driven development.
               </span>
               <span>PRATIKSHA KHANDBAHALE</span>
             </div>

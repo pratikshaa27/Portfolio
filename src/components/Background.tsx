@@ -64,8 +64,8 @@ export default function Background() {
         this.alpha = Math.random() * 0.5 + 0.2;
         this.pulseDirection = Math.random() > 0.5 ? 1 : -1;
 
-        // Soft pink, cherry-blossom rose, and pure white star colors matching our gorgeous plum palette
-        const colors = ["rgba(236, 72, 153, ", "rgba(244, 63, 94, ", "rgba(255, 255, 255, "];
+        // Sage teal, glacier cyan, and pure white star colors matching photo palette
+        const colors = ["rgba(20, 184, 166, ", "rgba(6, 182, 212, ", "rgba(255, 255, 255, "];
         this.color = colors[Math.floor(Math.random() * colors.length)];
       }
 
@@ -103,19 +103,19 @@ export default function Background() {
         
         let fillColor = `${this.color}${this.alpha})`;
         if (isLight) {
-          if (this.color.includes("236")) {
-            fillColor = `rgba(236, 72, 153, ${this.alpha * 0.75})`;
-          } else if (this.color.includes("244")) {
-            fillColor = `rgba(244, 63, 94, ${this.alpha * 0.75})`;
+          if (this.color.includes("20, 184")) {
+            fillColor = `rgba(13, 148, 136, ${this.alpha * 0.75})`;
+          } else if (this.color.includes("6, 182")) {
+            fillColor = `rgba(2, 132, 199, ${this.alpha * 0.75})`;
           } else {
-            fillColor = `rgba(251, 113, 133, ${this.alpha * 0.75})`;
+            fillColor = `rgba(14, 165, 233, ${this.alpha * 0.75})`;
           }
         }
         c.fillStyle = fillColor;
         // Add a tiny glow to larger particles
         if (this.size > 1.8) {
           c.shadowBlur = 8;
-          c.shadowColor = isLight ? "#EC4899" : "#F43F5E";
+          c.shadowColor = isLight ? "#0D9488" : "#2DD4BF";
         }
         c.fill();
         c.restore();
@@ -185,8 +185,8 @@ export default function Background() {
             ctx.moveTo(p1.x, p1.y);
             ctx.lineTo(p2.x, p2.y);
             ctx.strokeStyle = isLight
-              ? `rgba(139, 92, 246, ${alpha})`
-              : `rgba(236, 72, 153, ${alpha})`;
+              ? `rgba(13, 148, 136, ${alpha})`
+              : `rgba(45, 212, 191, ${alpha})`;
             ctx.lineWidth = 0.6;
             ctx.stroke();
           }
@@ -196,7 +196,7 @@ export default function Background() {
       // Subtle cybernetic glowing accent arcs/lines (abstract tech)
       ctx.beginPath();
       ctx.arc(width * 0.1, height * 0.2, 300, 0, Math.PI * 0.5);
-      ctx.strokeStyle = isLight ? "rgba(79, 70, 229, 0.03)" : "rgba(99, 102, 241, 0.02)";
+      ctx.strokeStyle = isLight ? "rgba(13, 148, 136, 0.03)" : "rgba(20, 184, 166, 0.02)";
       ctx.lineWidth = 2;
       ctx.stroke();
 
@@ -222,13 +222,13 @@ export default function Background() {
       {/* Space background canvas */}
       <canvas ref={canvasRef} className="absolute inset-0 block" />
 
-      {/* Dynamic ambient background gradients for organic cosmic look */}
-      <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-[#EC4899] opacity-5 blur-[140px] animate-pulse-slow pointer-events-none" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] rounded-full bg-[#F43F5E] opacity-5 blur-[160px] animate-pulse-slow pointer-events-none" style={{ animationDelay: "-4s" }} />
+      {/* Dynamic ambient background gradients matching photo's teal & glacier colors */}
+      <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-[#0D9488] opacity-10 blur-[140px] animate-pulse-slow pointer-events-none" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] rounded-full bg-[#0284C7] opacity-10 blur-[160px] animate-pulse-slow pointer-events-none" style={{ animationDelay: "-4s" }} />
 
       {/* Cybernetic horizontal laser separator lines */}
-      <div className="absolute inset-x-0 top-1/3 h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
-      <div className="absolute inset-x-0 top-2/3 h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
+      <div className="absolute inset-x-0 top-1/3 h-[1px] bg-gradient-to-r from-transparent via-teal-500/10 to-transparent" />
+      <div className="absolute inset-x-0 top-2/3 h-[1px] bg-gradient-to-r from-transparent via-cyan-500/10 to-transparent" />
     </div>
   );
 }

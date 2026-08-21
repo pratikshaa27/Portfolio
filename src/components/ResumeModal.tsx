@@ -66,7 +66,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
             <button
               onClick={handleDownloadPDF}
               disabled={isDownloading}
-              className="flex items-center gap-2 bg-gradient-to-r from-pink-500 via-rose-500 to-pink-600 hover:from-pink-600 hover:to-rose-600 text-white font-bold text-xs py-2.5 px-5 rounded-full tracking-wider uppercase transition-all duration-300 shadow-lg shadow-pink-500/30 hover:shadow-pink-500/50 hover:scale-105 active:scale-95 disabled:opacity-70 disabled:cursor-wait"
+              className="flex items-center gap-2 bg-gradient-to-r from-teal-500 via-cyan-500 to-teal-600 hover:from-teal-600 hover:to-cyan-600 text-white font-bold text-xs py-2.5 px-5 rounded-full tracking-wider uppercase transition-all duration-300 shadow-lg shadow-teal-500/30 hover:shadow-teal-500/50 hover:scale-105 active:scale-95 disabled:opacity-70 disabled:cursor-wait"
             >
               <Download className={`w-3.5 h-3.5 text-white ${isDownloading ? "animate-spin" : "animate-bounce"}`} />
               <span className="text-white font-bold">{isDownloading ? "Downloading..." : "Download PDF"}</span>
@@ -90,8 +90,8 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
             className="w-full bg-[#0d111d] border border-white/10 rounded-2xl p-6 sm:p-12 text-left space-y-8 text-white shadow-xl relative overflow-hidden print:border-none print:bg-white print:text-black print:p-0 print:shadow-none"
           >
              {/* Background design accents - Hidden during printing */}
-            <div className="absolute top-[-20%] right-[-10%] w-[350px] h-[350px] rounded-full bg-purple-600/5 blur-3xl pointer-events-none print:hidden" />
-            <div className="absolute bottom-[-10%] left-[-10%] w-[350px] h-[350px] rounded-full bg-pink-600/5 blur-3xl pointer-events-none print:hidden" />
+            <div className="absolute top-[-20%] right-[-10%] w-[350px] h-[350px] rounded-full bg-teal-600/5 blur-3xl pointer-events-none print:hidden" />
+            <div className="absolute bottom-[-10%] left-[-10%] w-[350px] h-[350px] rounded-full bg-cyan-600/5 blur-3xl pointer-events-none print:hidden" />
 
             {/* Resume Main Grid */}
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 print:grid-cols-12 print:gap-6">
@@ -101,7 +101,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                 
                 {/* Profile Circle representation on resume */}
                 <div className="space-y-4 text-center md:text-left print:text-left">
-                  <div className="w-24 h-24 rounded-full border-2 border-pink-500/40 shadow-[0_0_20px_rgba(236,72,153,0.3)] flex items-center justify-center mx-auto md:mx-0 overflow-hidden bg-slate-900 print:w-20 print:h-20 print:border-black/10">
+                  <div className="w-24 h-24 rounded-full border-2 border-teal-500/40 shadow-[0_0_20px_rgba(20,184,166,0.3)] flex items-center justify-center mx-auto md:mx-0 overflow-hidden bg-slate-900 print:w-20 print:h-20 print:border-black/10">
                     <img
                       src={profilePhoto || "/photo.png?v=v3"}
                       alt="Pratiksha Khandbahale Portrait"

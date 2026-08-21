@@ -352,7 +352,7 @@ const categoryConfig = {
     color: "text-white dark:text-white light:text-slate-800",
     borderGlow: "border-white/10 dark:border-white/10 light:border-slate-200",
     bg: "bg-white/5 dark:bg-white/5 light:bg-slate-100",
-    glowColor: "rgba(99, 102, 241, 0.05)",
+    glowColor: "rgba(20, 184, 166, 0.05)",
   },
   languages: {
     label: "Programming Languages",
@@ -360,7 +360,7 @@ const categoryConfig = {
     color: "text-purple-accent",
     borderGlow: "border-purple-accent/20",
     bg: "bg-purple-accent/10",
-    glowColor: "rgba(99, 102, 241, 0.15)",
+    glowColor: "rgba(20, 184, 166, 0.15)",
   },
   frameworks: {
     label: "Frameworks & UI",
@@ -368,7 +368,7 @@ const categoryConfig = {
     color: "text-blue-accent",
     borderGlow: "border-blue-accent/20",
     bg: "bg-blue-accent/10",
-    glowColor: "rgba(56, 189, 248, 0.15)",
+    glowColor: "rgba(6, 182, 212, 0.15)",
   },
   tools: {
     label: "Databases & Tools",
@@ -376,7 +376,7 @@ const categoryConfig = {
     color: "text-pink-accent",
     borderGlow: "border-pink-accent/20",
     bg: "bg-pink-accent/10",
-    glowColor: "rgba(244, 63, 94, 0.15)",
+    glowColor: "rgba(56, 189, 248, 0.15)",
   },
   "ai-soft": {
     label: "AI, Data Science & Soft Skills",
@@ -384,7 +384,7 @@ const categoryConfig = {
     color: "text-pink-accent",
     borderGlow: "border-pink-accent/20",
     bg: "bg-pink-accent/10",
-    glowColor: "rgba(244, 63, 94, 0.15)",
+    glowColor: "rgba(45, 212, 191, 0.15)",
   }
 };
 
@@ -476,9 +476,9 @@ export default function Skills() {
             03 / EXPERTISE
           </span>
           <h2 className="text-4xl md:text-6xl text-white font-medium flex items-center gap-3">
-            <span className="text-3xl md:text-5xl animate-pulse">🌸</span>
+            <span className="text-3xl md:text-5xl animate-pulse">✨</span>
             My Skills{" "}
-            <span className="text-3xl md:text-5xl animate-pulse">🌸</span>
+            <span className="text-3xl md:text-5xl animate-pulse">✨</span>
           </h2>
           <div className="w-16 h-[2px] bg-gradient-accent mt-4" />
         </div>
@@ -652,7 +652,7 @@ export default function Skills() {
                         <span className="text-[10px] sm:text-xs font-black tracking-tight leading-tight text-white block">
                           {node.name}
                         </span>
-                        <span className="text-[8px] font-mono tracking-wider font-semibold text-white/30 block mt-0.5">
+                        <span className="text-[8px] font-mono tracking-wider font-semibold text-white/40 block mt-0.5">
                           {node.level}
                         </span>
                       </div>
@@ -661,7 +661,7 @@ export default function Skills() {
                 })}
               </motion.div>
 
-              {/* Sliding Diagnostic Drawer Panel */}
+              {/* ─── D3 / Diagnostics Realtime Interactive Inspector Overlay ─── */}
               <AnimatePresence>
                 {clickedNode && (
                   <motion.div
@@ -670,7 +670,7 @@ export default function Skills() {
                     exit={{ x: "110%", opacity: 0 }}
                     transition={{ type: "spring", stiffness: 100, damping: 18 }}
                     onClick={(e) => e.stopPropagation()}
-                    className="absolute top-4 right-4 bottom-4 w-full max-w-[340px] sm:max-w-[400px] z-30 rounded-[28px] glass-panel border border-pink-500/15 p-5 flex flex-col justify-start gap-4 shadow-2xl shadow-pink-500/5 backdrop-blur-xl overflow-y-auto"
+                    className="absolute top-4 right-4 bottom-4 w-full max-w-[340px] sm:max-w-[400px] z-30 rounded-[28px] glass-panel border border-teal-500/20 p-5 flex flex-col justify-start gap-4 shadow-2xl shadow-teal-500/10 backdrop-blur-xl overflow-y-auto"
                   >
                     {/* Close button */}
                     <button
@@ -678,7 +678,7 @@ export default function Skills() {
                         e.stopPropagation();
                         setClickedNode(null);
                       }}
-                      className="absolute top-4 right-4 w-7 h-7 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-pink-500/20 hover:border-pink-500/30 text-white hover:scale-105 transition-all cursor-pointer"
+                      className="absolute top-4 right-4 w-7 h-7 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-teal-500/20 hover:border-teal-500/30 text-white hover:scale-105 transition-all cursor-pointer"
                       aria-label="Close Diagnostics"
                     >
                       <span className="text-xs font-mono">✕</span>
