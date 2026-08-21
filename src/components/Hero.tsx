@@ -4,7 +4,14 @@
  */
 
 import React, { useMemo, useRef, useState, useEffect } from "react";
-import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from "motion/react";
+import {
+  motion,
+  useMotionValue,
+  useSpring,
+  useTransform,
+  useScroll,
+  AnimatePresence
+} from "motion/react";
 import TechLogo from "./TechLogo";
 import MagneticButton from "./MagneticButton";
 import {
@@ -18,9 +25,7 @@ import {
   MapPin,
   Briefcase,
   Zap,
-  Film,
-  Camera,
-  Compass
+  ChevronDown
 } from "lucide-react";
 
 interface HeroProps {
@@ -136,6 +141,32 @@ export default function Hero({ onNavClick, onOpenResume, theme = "dark" }: HeroP
     return () => clearInterval(timer);
   }, []);
 
+  // 21st.dev Scroll-Driven Interactive Parallax
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+
+  // Scroll Transforms
+  const titleScrollY = useTransform(scrollYProgress, [0, 1], [0, 150]);
+  const titleScrollScale = useTransform(scrollYProgress, [0, 0.8], [1, 1.08]);
+  const titleScrollOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0.15]);
+
+  const portraitScrollY = useTransform(scrollYProgress, [0, 1], [0, -80]);
+  const portraitScrollScale = useTransform(scrollYProgress, [0, 0.8], [1, 0.92]);
+
+  const haloScrollScale = useTransform(scrollYProgress, [0, 1], [1, 1.6]);
+  const haloScrollRotate = useTransform(scrollYProgress, [0, 1], [0, 60]);
+
+  const capsulesScrollOpacity = useTransform(scrollYProgress, [0, 0.35], [1, 0]);
+  const capsulesLeftScrollX = useTransform(scrollYProgress, [0, 0.4], [0, -90]);
+  const capsulesRightScrollX = useTransform(scrollYProgress, [0, 0.4], [0, 90]);
+
+  const bottomGridScrollY = useTransform(scrollYProgress, [0, 0.5], [0, 30]);
+  const bottomGridOpacity = useTransform(scrollYProgress, [0, 0.45], [1, 0.25]);
+
+  const scrollIndicatorOpacity = useTransform(scrollYProgress, [0, 0.12], [1, 0]);
+
   // Mouse-tracking for 3D parallax & light cone tracking
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -147,12 +178,10 @@ export default function Hero({ onNavClick, onOpenResume, theme = "dark" }: HeroP
   const bgX = useTransform(smoothX, [-0.5, 0.5], [30, -30]);
   const bgY = useTransform(smoothY, [-0.5, 0.5], [20, -20]);
   const flareX = useTransform(smoothX, [-0.5, 0.5], [-80, 80]);
-  const textX = useTransform(smoothX, [-0.5, 0.5], [-16, 16]);
-  const textY = useTransform(smoothY, [-0.5, 0.5], [-10, 10]);
-  const portraitX = useTransform(smoothX, [-0.5, 0.5], [-28, 28]);
-  const portraitY = useTransform(smoothY, [-0.5, 0.5], [-16, 16]);
-  const floatingLeftX = useTransform(smoothX, [-0.5, 0.5], [-45, 45]);
-  const floatingRightX = useTransform(smoothX, [-0.5, 0.5], [45, -45]);
+  const mouseTextX = useTransform(smoothX, [-0.5, 0.5], [-16, 16]);
+  const mouseTextY = useTransform(smoothY, [-0.5, 0.5], [-10, 10]);
+  const mousePortraitX = useTransform(smoothX, [-0.5, 0.5], [-26, 26]);
+  const mousePortraitY = useTransform(smoothY, [-0.5, 0.5], [-14, 14]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
     if (!heroRef.current) return;
@@ -236,17 +265,15 @@ export default function Hero({ onNavClick, onOpenResume, theme = "dark" }: HeroP
           style={{ animationDelay: "-3.5s" }}
         />
 
-        {/* Cinematic Concentric Wireframe Halo Rings */}
+        {/* Cinematic Concentric Wireframe Halo Rings with Scroll Acceleration */}
         <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
+          style={{ scale: haloScrollScale, rotate: haloScrollRotate }}
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[850px] border border-pink-500/[0.06] rounded-full pointer-events-none"
         >
           <div className="absolute top-0 left-1/2 w-1.5 h-1.5 bg-pink-400 rounded-full shadow-[0_0_8px_rgba(236,72,153,0.8)]" />
         </motion.div>
         <motion.div
-          animate={{ rotate: -360 }}
-          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          style={{ scale: haloScrollScale }}
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[620px] h-[620px] border border-dashed border-pink-500/[0.08] rounded-full pointer-events-none"
         >
           <div className="absolute bottom-0 right-1/4 w-1.5 h-1.5 bg-rose-400 rounded-full shadow-[0_0_8px_rgba(244,63,94,0.8)]" />
@@ -321,9 +348,12 @@ export default function Hero({ onNavClick, onOpenResume, theme = "dark" }: HeroP
 
       {/* ─── Main Hero Center Stage ─── */}
       <div className="relative w-full max-w-[1400px] mx-auto flex-1 flex flex-col justify-center items-center px-4 sm:px-8 my-auto z-10 min-h-[460px] sm:min-h-[520px] md:min-h-[580px]">
-        {/* Floating Cinematic Glass Micro-Capsules (Floating with 3D Depth) */}
+        {/* Floating Cinematic Glass Micro-Capsules (Drifting with Scroll & Mouse) */}
         <motion.div
-          style={{ x: floatingLeftX }}
+          style={{
+            x: capsulesLeftScrollX,
+            opacity: capsulesScrollOpacity,
+          }}
           initial={{ opacity: 0, x: -45, filter: "blur(12px)" }}
           animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
           transition={{ duration: 1.0, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -347,7 +377,10 @@ export default function Hero({ onNavClick, onOpenResume, theme = "dark" }: HeroP
         </motion.div>
 
         <motion.div
-          style={{ x: floatingRightX }}
+          style={{
+            x: capsulesRightScrollX,
+            opacity: capsulesScrollOpacity,
+          }}
           initial={{ opacity: 0, x: 45, filter: "blur(12px)" }}
           animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
           transition={{ duration: 1.0, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
@@ -370,10 +403,15 @@ export default function Hero({ onNavClick, onOpenResume, theme = "dark" }: HeroP
           </div>
         </motion.div>
 
-        {/* Staggered Character Blur-to-Focus Reveal Title */}
+        {/* 21st.dev Scroll-Driven Parallax Title Stage */}
         <motion.div
           className="w-full text-center relative z-0 flex items-center justify-center select-none pointer-events-none"
-          style={{ x: textX, y: textY }}
+          style={{
+            x: mouseTextX,
+            y: titleScrollY,
+            scale: titleScrollScale,
+            opacity: titleScrollOpacity,
+          }}
         >
           <h1
             style={{ fontFamily: "'Anton', 'Bebas Neue', Impact, sans-serif" }}
@@ -401,15 +439,16 @@ export default function Hero({ onNavClick, onOpenResume, theme = "dark" }: HeroP
           }}
         />
 
-        {/* Centered Overlapping Cutout Portrait with Smooth Grounding Mask */}
+        {/* 21st.dev Scroll-Driven Parallax Portrait with Grounding Mask */}
         <motion.div
           initial={{ opacity: 0, y: 75, scale: 0.88 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 1.3, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
           className="absolute bottom-0 left-1/2 -translate-x-1/2 z-10 pointer-events-none w-full flex justify-center items-end"
           style={{
-            x: portraitX,
-            y: portraitY,
+            x: mousePortraitX,
+            y: portraitScrollY,
+            scale: portraitScrollScale,
             WebkitMaskImage: "linear-gradient(to bottom, black 85%, transparent 100%)",
             maskImage: "linear-gradient(to bottom, black 85%, transparent 100%)",
           }}
@@ -430,10 +469,39 @@ export default function Hero({ onNavClick, onOpenResume, theme = "dark" }: HeroP
             }`}
           />
         </motion.div>
+
+        {/* ─── 21st.dev Style Floating Scroll Prompt Indicator ─── */}
+        <motion.div
+          style={{ opacity: scrollIndicatorOpacity }}
+          className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1.5 pointer-events-none cursor-pointer"
+          onClick={() => onNavClick("about")}
+        >
+          <span className="text-[9px] font-mono tracking-[0.3em] uppercase text-pink-500/50 font-bold">
+            SCROLL
+          </span>
+          <div className="w-5 h-8 rounded-full border border-pink-500/30 flex justify-center p-1 bg-pink-500/5 backdrop-blur-sm shadow-[0_0_10px_rgba(236,72,153,0.15)]">
+            <motion.div
+              animate={{
+                y: [0, 12, 0],
+                opacity: [0.8, 0.2, 0.8],
+              }}
+              transition={{
+                duration: 1.8,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="w-1.5 h-1.5 rounded-full bg-pink-500 shadow-[0_0_8px_rgba(236,72,153,0.9)]"
+            />
+          </div>
+        </motion.div>
       </div>
 
       {/* ─── Bottom Hero Grid with Staggered Tag Reveals & Socials ─── */}
       <motion.div
+        style={{
+          y: bottomGridScrollY,
+          opacity: bottomGridOpacity,
+        }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.8 }}
