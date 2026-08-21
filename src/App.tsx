@@ -3,8 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, useEffect, ReactNode } from "react";
-import { motion } from "motion/react";
+import { useState, useEffect } from "react";
 import Loader from "./components/Loader";
 import Background from "./components/Background";
 import Navbar from "./components/Navbar";
@@ -19,21 +18,14 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ResumeModal from "./components/ResumeModal";
 import CustomCursor from "./components/CustomCursor";
-
-function ScrollReveal({ children }: { children: ReactNode }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.1, margin: "-80px" }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-    >
-      {children}
-    </motion.div>
-  );
-}
+import {
+  ScrollReveal,
+  ScrollProgressBar,
+  useLenis,
+} from "./components/ScrollReveal";
 
 export default function App() {
+  useLenis(); // Buttery-smooth inertial momentum scrolling
   const [isLoading, setIsLoading] = useState(true);
   const [activeSection, setActiveSection] = useState("home");
   const [isResumeOpen, setIsResumeOpen] = useState(false);
@@ -119,6 +111,9 @@ export default function App() {
       {/* Main Portfolio System Container */}
       {!isLoading && (
         <div className="relative min-h-screen text-text select-none selection:bg-purple-accent/30 selection:text-white transition-opacity duration-1000 animate-[fadeIn_0.8s_ease_out]">
+          {/* 21st.dev Top Neon Scroll Progress Bar */}
+          <ScrollProgressBar />
+
           {/* Small Pink Custom Cursor Follower */}
           <CustomCursor />
 
@@ -133,44 +128,47 @@ export default function App() {
             {/* HERO MODULE */}
             <Hero onNavClick={handleNavClick} onOpenResume={() => setIsResumeOpen(true)} theme={theme} />
 
+
             {/* IDENTITY / ABOUT MODULE */}
-            <ScrollReveal>
+            <ScrollReveal variant="blur-in">
               <About />
             </ScrollReveal>
 
             {/* ACADEMICS / EDUCATION MODULE */}
-            <ScrollReveal>
+            <ScrollReveal variant="fade-up">
               <Education />
             </ScrollReveal>
 
             {/* ABILITIES / SKILLS MODULE */}
-            <ScrollReveal>
+            <ScrollReveal variant="scale-up">
               <Skills />
             </ScrollReveal>
 
             {/* SHOWCASE / PROJECTS MODULE */}
-            <ScrollReveal>
+            <ScrollReveal variant="blur-in">
               <Projects />
             </ScrollReveal>
 
             {/* MERITS / CERTIFICATES MODULE */}
-            <ScrollReveal>
+            <ScrollReveal variant="fade-up">
               <Certificates />
             </ScrollReveal>
 
             {/* HISTORY / EXPERIENCE MODULE */}
-            <ScrollReveal>
+            <ScrollReveal variant="blur-in">
               <Experience />
             </ScrollReveal>
 
             {/* TRANSCEIVER / CONTACT MODULE */}
-            <ScrollReveal>
+            <ScrollReveal variant="fade-up">
               <Contact />
             </ScrollReveal>
           </main>
 
           {/* SYSTEM FOOTER */}
-          <Footer onNavClick={handleNavClick} />
+          <ScrollReveal variant="fade-up" amount={0.05}>
+            <Footer onNavClick={handleNavClick} />
+          </ScrollReveal>
 
           {/* Resume Modal Window */}
           <div className="print-container-wrapper">

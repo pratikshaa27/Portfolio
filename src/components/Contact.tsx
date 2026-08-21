@@ -7,6 +7,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Mail, MapPin, Linkedin, Github, Send, Terminal, Phone, Copy, Check } from "lucide-react";
 import SpotlightCard from "./SpotlightCard";
+import { SectionHeader } from "./ScrollReveal";
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -24,27 +25,13 @@ export default function Contact() {
       id="contact"
       className="py-24 px-4 md:px-8 max-w-7xl mx-auto scroll-mt-20"
     >
-      {/* Title */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="flex flex-col items-start text-left mb-16"
-      >
-        <span className="text-xs font-mono tracking-[0.3em] text-purple-accent uppercase mb-2">
-          07 / CONTACT
-        </span>
-        <h2 className="text-4xl md:text-6xl text-white font-medium flex items-center gap-3">
-          <span className="text-3xl md:text-5xl animate-pulse">✨</span>
-          Get In{" "}
-          <span className="font-display font-display-serif italic text-gradient">
-            Touch
-          </span>
-          <span className="text-3xl md:text-5xl animate-pulse">✨</span>
-        </h2>
-        <div className="w-16 h-[2px] bg-gradient-accent mt-4" />
-      </motion.div>
+      {/* 21st.dev Section Header */}
+      <SectionHeader
+        number="07 / CONTACT"
+        titlePrefix="Get In"
+        highlightedText="Touch"
+        emoji="✨"
+      />
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
         {/* LEFT: Glass Contact Info Card */}

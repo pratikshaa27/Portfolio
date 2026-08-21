@@ -4,9 +4,10 @@
  */
 
 import { useEffect, useRef } from "react";
-import { BookOpen, Laptop, Compass, Heart, GraduationCap, Sparkles, Award } from "lucide-react";
+import { BookOpen, Laptop, Compass, Heart, GraduationCap } from "lucide-react";
 import { motion, animate } from "motion/react";
 import SpotlightCard from "./SpotlightCard";
+import { SectionHeader } from "./ScrollReveal";
 
 interface CountUpProps {
   value: number;
@@ -78,27 +79,13 @@ export default function About() {
         className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-cyan-500/5 to-teal-500/5 rounded-full blur-[120px] pointer-events-none -z-10"
       />
 
-      {/* Title */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="flex flex-col items-start text-left mb-16"
-      >
-        <span className="text-xs font-mono tracking-[0.3em] text-purple-accent uppercase mb-2">
-          01 / PROFILE
-        </span>
-        <h2 className="text-4xl md:text-6xl text-white font-medium flex items-center gap-3">
-          <span className="text-3xl md:text-5xl animate-pulse">✨</span>
-          About{" "}
-          <span className="font-display font-display-serif italic text-gradient">
-            Me
-          </span>
-          <span className="text-3xl md:text-5xl animate-pulse">✨</span>
-        </h2>
-        <div className="w-16 h-[2px] bg-gradient-accent mt-4" />
-      </motion.div>
+      {/* 21st.dev Section Header */}
+      <SectionHeader
+        number="01 / PROFILE"
+        titlePrefix="About"
+        highlightedText="Me"
+        emoji="✨"
+      />
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
         {/* Left: Statement of Purpose (21st.dev Spotlight Bento Card) */}
@@ -207,7 +194,7 @@ export default function About() {
             viewport={{ once: true, margin: "-50px" }}
             transition={{ type: "spring", stiffness: 120, damping: 16, delay: idx * 0.15 }}
             whileHover={{ scale: 1.05 }}
-            className="rounded-3xl glass-panel p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden group/stat hover:border-purple-accent/30 transition-all duration-500 hover:shadow-[0_0_30px_rgba(236,72,153,0.15)] animate-[fadeIn_0.5s_ease_out]"
+            className="rounded-3xl glass-panel p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden group/stat hover:border-purple-accent/30 transition-all duration-500 hover:shadow-[0_0_30px_rgba(20,184,166,0.2)] animate-[fadeIn_0.5s_ease_out]"
           >
             {/* Glossy hover reflection effect */}
             <div className="absolute inset-0 bg-gradient-to-tr from-purple-accent/0 via-purple-accent/5 to-blue-accent/0 opacity-0 group-hover/stat:opacity-100 transition-opacity duration-500 pointer-events-none" />

@@ -117,11 +117,10 @@ function StaggerTag({
         delay: 1.0 + index * 0.08,
         ease: [0.16, 1, 0.3, 1],
       }}
-      className={`transition-all duration-300 cursor-pointer ${
-        theme === "light"
+      className={`transition-all duration-300 cursor-pointer ${theme === "light"
           ? "text-slate-700 hover:text-teal-600 font-bold hover:scale-105"
           : "text-white/75 hover:text-teal-400 font-bold hover:scale-105"
-      }`}
+        }`}
       onClick={onClick}
     >
       {children}
@@ -205,9 +204,8 @@ export default function Hero({ onNavClick, onOpenResume, theme = "dark" }: HeroP
     <section
       ref={heroRef}
       id="home"
-      className={`relative min-h-[96vh] lg:min-h-screen flex flex-col justify-between pt-24 sm:pt-28 md:pt-32 pb-0 overflow-hidden select-none transition-colors duration-700 ${
-        theme === "light" ? "bg-[#f0f9fa]" : "bg-[#060e11]"
-      }`}
+      className={`relative min-h-[96vh] lg:min-h-screen flex flex-col justify-between pt-24 sm:pt-28 md:pt-32 pb-0 overflow-hidden select-none transition-colors duration-700 ${theme === "light" ? "bg-[#f0f9fa]" : "bg-[#060e11]"
+        }`}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{ perspective: "1400px" }}
@@ -250,18 +248,16 @@ export default function Hero({ onNavClick, onOpenResume, theme = "dark" }: HeroP
       >
         {/* Deep Spotlight Aura */}
         <div
-          className={`absolute top-[2%] left-[8%] w-[800px] h-[800px] rounded-full blur-[170px] animate-pulse-slow ${
-            theme === "light"
+          className={`absolute top-[2%] left-[8%] w-[800px] h-[800px] rounded-full blur-[170px] animate-pulse-slow ${theme === "light"
               ? "bg-gradient-to-tr from-teal-400/35 via-cyan-300/20 to-transparent"
               : "bg-gradient-to-tr from-teal-600/40 via-cyan-500/25 to-transparent"
-          }`}
+            }`}
         />
         <div
-          className={`absolute bottom-[6%] right-[6%] w-[750px] h-[750px] rounded-full blur-[170px] animate-pulse-slow ${
-            theme === "light"
+          className={`absolute bottom-[6%] right-[6%] w-[750px] h-[750px] rounded-full blur-[170px] animate-pulse-slow ${theme === "light"
               ? "bg-gradient-to-br from-teal-300/30 via-sky-200/20 to-transparent"
               : "bg-gradient-to-br from-teal-500/30 via-sky-900/25 to-transparent"
-          }`}
+            }`}
           style={{ animationDelay: "-3.5s" }}
         />
 
@@ -308,11 +304,10 @@ export default function Hero({ onNavClick, onOpenResume, theme = "dark" }: HeroP
           initial={{ opacity: 0, y: -15, filter: "blur(6px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className={`flex items-center gap-2.5 px-4 py-1.5 rounded-full border shadow-lg ${
-            theme === "light"
+          className={`flex items-center gap-2.5 px-4 py-1.5 rounded-full border shadow-lg ${theme === "light"
               ? "bg-white/90 border-teal-500/25 text-slate-800 shadow-teal-500/10"
               : "bg-black/50 border-teal-500/25 text-teal-200/90 backdrop-blur-xl shadow-teal-500/15"
-          }`}
+            }`}
         >
           <span className="flex h-2 w-2 relative">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
@@ -357,11 +352,10 @@ export default function Hero({ onNavClick, onOpenResume, theme = "dark" }: HeroP
           initial={{ opacity: 0, x: -45, filter: "blur(12px)" }}
           animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
           transition={{ duration: 1.0, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className={`absolute left-4 sm:left-10 lg:left-16 top-[38%] z-20 hidden lg:flex items-center gap-3 px-4.5 py-2.5 rounded-full border shadow-2xl backdrop-blur-2xl transition-all duration-300 hover:scale-105 cursor-pointer ${
-            theme === "light"
+          className={`absolute left-4 sm:left-10 lg:left-16 top-[38%] z-20 hidden lg:flex items-center gap-3 px-4.5 py-2.5 rounded-full border shadow-2xl backdrop-blur-2xl transition-all duration-300 hover:scale-105 cursor-pointer ${theme === "light"
               ? "bg-white/95 border-teal-500/30 text-slate-800 shadow-teal-500/15"
               : "bg-[#091a1e]/85 border-teal-500/35 text-white/90 shadow-teal-500/25"
-          }`}
+            }`}
         >
           <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-teal-500 to-cyan-400 flex items-center justify-center text-white shadow-md">
             <Award className="w-4 h-4" />
@@ -384,11 +378,10 @@ export default function Hero({ onNavClick, onOpenResume, theme = "dark" }: HeroP
           initial={{ opacity: 0, x: 45, filter: "blur(12px)" }}
           animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
           transition={{ duration: 1.0, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className={`absolute right-4 sm:right-10 lg:right-16 top-[38%] z-20 hidden lg:flex items-center gap-3 px-4.5 py-2.5 rounded-full border shadow-2xl backdrop-blur-2xl transition-all duration-300 hover:scale-105 cursor-pointer ${
-            theme === "light"
+          className={`absolute right-4 sm:right-10 lg:right-16 top-[38%] z-20 hidden lg:flex items-center gap-3 px-4.5 py-2.5 rounded-full border shadow-2xl backdrop-blur-2xl transition-all duration-300 hover:scale-105 cursor-pointer ${theme === "light"
               ? "bg-white/95 border-teal-500/30 text-slate-800 shadow-teal-500/15"
               : "bg-[#091a1e]/85 border-teal-500/35 text-white/90 shadow-teal-500/25"
-          }`}
+            }`}
         >
           <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-teal-600 to-cyan-500 flex items-center justify-center text-white shadow-md">
             <Zap className="w-4 h-4" />
@@ -415,11 +408,10 @@ export default function Hero({ onNavClick, onOpenResume, theme = "dark" }: HeroP
         >
           <h1
             style={{ fontFamily: "'Anton', 'Bebas Neue', Impact, sans-serif" }}
-            className={`relative text-[19vw] sm:text-[18vw] md:text-[17vw] lg:text-[16.5vw] font-black uppercase tracking-[-0.01em] leading-none text-center select-none ${
-              theme === "light"
+            className={`relative text-[19vw] sm:text-[18vw] md:text-[17vw] lg:text-[16.5vw] font-black uppercase tracking-[-0.01em] leading-none text-center select-none ${theme === "light"
                 ? "drop-shadow-[0_15px_30px_rgba(13,148,136,0.25)]"
                 : "drop-shadow-[0_25px_60px_rgba(20,184,166,0.55)] filter drop-shadow-[0_12px_35px_rgba(0,0,0,0.95)]"
-            }`}
+              }`}
           >
             <HeroCharReveal text="PRATIKSHA" delay={0.12} theme={theme} />
           </h1>
@@ -462,11 +454,10 @@ export default function Hero({ onNavClick, onOpenResume, theme = "dark" }: HeroP
             }}
             animate={{ y: [0, -8, 0] }}
             transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
-            className={`h-[340px] sm:h-[440px] md:h-[560px] lg:h-[640px] xl:h-[680px] object-contain object-bottom filter ${
-              theme === "light"
+            className={`h-[340px] sm:h-[440px] md:h-[560px] lg:h-[640px] xl:h-[680px] object-contain object-bottom filter ${theme === "light"
                 ? "drop-shadow-[0_18px_40px_rgba(20,184,166,0.28)]"
                 : "drop-shadow-[0_24px_55px_rgba(20,184,166,0.45)]"
-            }`}
+              }`}
           />
         </motion.div>
 
@@ -505,9 +496,8 @@ export default function Hero({ onNavClick, onOpenResume, theme = "dark" }: HeroP
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.8 }}
-        className={`w-full max-w-7xl mx-auto px-6 sm:px-10 py-4.5 z-20 grid grid-cols-1 md:grid-cols-12 gap-6 border-t items-center ${
-          theme === "light" ? "border-teal-500/15" : "border-white/10"
-        }`}
+        className={`w-full max-w-7xl mx-auto px-6 sm:px-10 py-4.5 z-20 grid grid-cols-1 md:grid-cols-12 gap-6 border-t items-center ${theme === "light" ? "border-teal-500/15" : "border-white/10"
+          }`}
       >
         {/* Bottom Left: Staggered Specialization Tags */}
         <div className="md:col-span-7 flex flex-wrap items-center gap-3 sm:gap-6 text-xs sm:text-[13px] font-sans font-bold tracking-[0.15em]">
@@ -551,9 +541,8 @@ export default function Hero({ onNavClick, onOpenResume, theme = "dark" }: HeroP
 
         {/* Bottom Right: Staggered Social Links & Cinematic Resume Action */}
         <div
-          className={`md:col-span-5 flex items-center justify-start md:justify-end gap-5 text-xs sm:text-[13px] font-sans font-extrabold tracking-[0.15em] ${
-            theme === "light" ? "text-slate-800" : "text-white/90"
-          }`}
+          className={`md:col-span-5 flex items-center justify-start md:justify-end gap-5 text-xs sm:text-[13px] font-sans font-extrabold tracking-[0.15em] ${theme === "light" ? "text-slate-800" : "text-white/90"
+            }`}
         >
           <motion.a
             href="https://github.com/pratikshaa27"
@@ -562,9 +551,8 @@ export default function Hero({ onNavClick, onOpenResume, theme = "dark" }: HeroP
             initial={{ opacity: 0, x: 15, filter: "blur(5px)" }}
             animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.5, delay: 1.1, ease: [0.16, 1, 0.3, 1] }}
-            className={`transition-colors uppercase relative group py-1 ${
-              theme === "light" ? "hover:text-teal-600" : "hover:text-teal-400"
-            }`}
+            className={`transition-colors uppercase relative group py-1 ${theme === "light" ? "hover:text-teal-600" : "hover:text-teal-400"
+              }`}
           >
             <span>GITHUB</span>
             <span className="absolute left-0 bottom-0 w-0 h-[1.5px] bg-teal-400 transition-all duration-300 group-hover:w-full" />
@@ -576,9 +564,8 @@ export default function Hero({ onNavClick, onOpenResume, theme = "dark" }: HeroP
             initial={{ opacity: 0, x: 15, filter: "blur(5px)" }}
             animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.5, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className={`transition-colors uppercase relative group py-1 ${
-              theme === "light" ? "hover:text-teal-600" : "hover:text-teal-400"
-            }`}
+            className={`transition-colors uppercase relative group py-1 ${theme === "light" ? "hover:text-teal-600" : "hover:text-teal-400"
+              }`}
           >
             <span>LINKEDIN</span>
             <span className="absolute left-0 bottom-0 w-0 h-[1.5px] bg-teal-400 transition-all duration-300 group-hover:w-full" />
@@ -604,11 +591,10 @@ export default function Hero({ onNavClick, onOpenResume, theme = "dark" }: HeroP
         initial={{ opacity: 0, y: 20, scaleX: 0.9 }}
         animate={{ opacity: 1, y: 0, scaleX: 1 }}
         transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        className={`w-full relative overflow-hidden py-3.5 border-y z-20 transition-colors duration-500 ${
-          theme === "light"
+        className={`w-full relative overflow-hidden py-3.5 border-y z-20 transition-colors duration-500 ${theme === "light"
             ? "bg-gradient-to-r from-teal-600 via-cyan-600 to-teal-600 border-teal-400/40 shadow-[0_4px_25px_rgba(20,184,166,0.25)]"
             : "bg-gradient-to-r from-[#032629] via-[#0f766e] to-[#032629] border-teal-400/30 shadow-[0_4px_30px_rgba(20,184,166,0.35)]"
-        }`}
+          }`}
       >
         {/* Continuous Sweeping Light Beam Animation */}
         <motion.div
@@ -619,14 +605,12 @@ export default function Hero({ onNavClick, onOpenResume, theme = "dark" }: HeroP
 
         {/* Side fade masks for ultra-smooth edge blending */}
         <div
-          className={`absolute inset-y-0 left-0 w-12 bg-gradient-to-r to-transparent z-10 pointer-events-none opacity-60 ${
-            theme === "light" ? "from-teal-600" : "from-[#032629]"
-          }`}
+          className={`absolute inset-y-0 left-0 w-12 bg-gradient-to-r to-transparent z-10 pointer-events-none opacity-60 ${theme === "light" ? "from-teal-600" : "from-[#032629]"
+            }`}
         />
         <div
-          className={`absolute inset-y-0 right-0 w-12 bg-gradient-to-l to-transparent z-10 pointer-events-none opacity-60 ${
-            theme === "light" ? "from-teal-600" : "from-[#032629]"
-          }`}
+          className={`absolute inset-y-0 right-0 w-12 bg-gradient-to-l to-transparent z-10 pointer-events-none opacity-60 ${theme === "light" ? "from-teal-600" : "from-[#032629]"
+            }`}
         />
 
         {/* Strict 1-Line Horizontal Infinite Slider Container */}

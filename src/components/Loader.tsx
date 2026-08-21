@@ -157,7 +157,7 @@ const PinkWireframeGlobe = ({ progress = 0 }: { progress: number }) => {
         }
         const depthRatio = (lat / latBands);
         const alpha = glowIntensity + depthRatio * 0.3;
-        ctx.strokeStyle = `rgba(236, 72, 153, ${alpha})`;
+        ctx.strokeStyle = `rgba(20, 184, 166, ${alpha})`;
         ctx.lineWidth = 0.8;
         ctx.stroke();
       }

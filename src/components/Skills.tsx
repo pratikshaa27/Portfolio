@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "motion/react";
 import SkillChart from "./SkillChart";
 import TechLogo from "./TechLogo";
 import SpotlightCard from "./SpotlightCard";
+import { SectionHeader } from "./ScrollReveal";
 import {
   Code,
   Terminal,
@@ -453,36 +454,23 @@ export default function Skills() {
       <motion.div
         animate={{
           background: `radial-gradient(circle, ${activeNodeInfo
-              ? categoryConfig[activeNodeInfo.category].glowColor
-              : activeCategory !== "all"
-                ? categoryConfig[activeCategory].glowColor
-                : "rgba(139, 92, 246, 0.04)"
+            ? categoryConfig[activeNodeInfo.category].glowColor
+            : activeCategory !== "all"
+              ? categoryConfig[activeCategory].glowColor
+              : "rgba(139, 92, 246, 0.04)"
             } 0%, transparent 70%)`
         }}
         transition={{ duration: 0.6 }}
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[140px] pointer-events-none -z-10"
       />
 
-      {/* Header Panel */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12"
-      >
-        <div className="flex flex-col items-start text-left">
-          <span className="text-xs font-mono tracking-[0.3em] text-purple-accent uppercase mb-2">
-            03 / EXPERTISE
-          </span>
-          <h2 className="text-4xl md:text-6xl text-white font-medium flex items-center gap-3">
-            <span className="text-3xl md:text-5xl animate-pulse">✨</span>
-            My Skills{" "}
-            <span className="text-3xl md:text-5xl animate-pulse">✨</span>
-          </h2>
-          <div className="w-16 h-[2px] bg-gradient-accent mt-4" />
-        </div>
-      </motion.div>
+      {/* 21st.dev Section Header */}
+      <SectionHeader
+        number="03 / EXPERTISE"
+        titlePrefix="My"
+        highlightedText="Skills"
+        emoji="✨"
+      />
 
       <AnimatePresence mode="wait">
         {viewMode === "galaxy" ? (
@@ -511,8 +499,8 @@ export default function Skills() {
                       setClickedNode(null); // Clear selected node on category change
                     }}
                     className={`flex items-center gap-2 px-3.5 py-2 rounded-2xl text-xs font-mono font-medium border transition-all cursor-pointer ${isActive
-                        ? `${config.color} ${config.borderGlow} ${config.bg} shadow-md backdrop-blur-md`
-                        : "border-white/5 bg-white/[0.02] text-white/40 hover:text-white/80 hover:border-white/10"
+                      ? `${config.color} ${config.borderGlow} ${config.bg} shadow-md backdrop-blur-md`
+                      : "border-white/5 bg-white/[0.02] text-white/40 hover:text-white/80 hover:border-white/10"
                       }`}
                   >
                     {key !== "all" && IconComponent && <IconComponent className="w-3.5 h-3.5" />}
@@ -551,12 +539,12 @@ export default function Skills() {
                       top: `${(i * 13) % 90 + 5}%`,
                     }}
                     className={`absolute w-1 sm:w-1.5 h-1 sm:h-1.5 rounded-full ${i % 4 === 0
-                        ? "bg-purple-accent shadow-[0_0_6px_rgba(236,72,153,0.6)]"
-                        : i % 4 === 1
-                          ? "bg-blue-accent shadow-[0_0_6px_rgba(244,63,94,0.6)]"
-                          : i % 4 === 2
-                            ? "bg-pink-accent shadow-[0_0_6px_rgba(251,113,133,0.6)]"
-                            : "bg-pink-300 shadow-[0_0_6px_rgba(244,63,94,0.6)]"
+                      ? "bg-purple-accent shadow-[0_0_6px_rgba(20,184,166,0.6)]"
+                      : i % 4 === 1
+                        ? "bg-blue-accent shadow-[0_0_6px_rgba(6,182,212,0.6)]"
+                        : i % 4 === 2
+                          ? "bg-pink-accent shadow-[0_0_6px_rgba(56,189,248,0.6)]"
+                          : "bg-teal-300 shadow-[0_0_6px_rgba(45,212,191,0.6)]"
                       }`}
                   />
                 ))}
@@ -630,13 +618,13 @@ export default function Skills() {
                         setClickedNode(clickedNode?.name === node.name ? null : node);
                       }}
                       className={`absolute -translate-x-1/2 -translate-y-1/2 rounded-full flex flex-col items-center justify-center cursor-grab active:cursor-grabbing border text-center font-sans transition-shadow duration-300 ${node.level === "Expert"
-                          ? "w-20 h-20 sm:w-28 sm:h-28"
-                          : "w-18 h-18 sm:w-24 sm:h-24"
+                        ? "w-20 h-20 sm:w-28 sm:h-28"
+                        : "w-18 h-18 sm:w-24 sm:h-24"
                         } ${isSelected
-                          ? `${nodeConfig.bg} ${nodeConfig.borderGlow} ${nodeConfig.color} shadow-[0_0_24px_rgba(139,92,246,0.35)] ring-2 ring-purple-accent/40`
+                          ? `${nodeConfig.bg} ${nodeConfig.borderGlow} ${nodeConfig.color} shadow-[0_0_24px_rgba(20,184,166,0.35)] ring-2 ring-purple-accent/40`
                           : isDimmed
                             ? "bg-slate-950/20 border-white/5 text-white/20 shadow-none"
-                            : `${nodeConfig.bg} border-white/10 ${nodeConfig.color} shadow-lg hover:border-purple-accent/30 hover:shadow-[0_0_15px_rgba(167,139,250,0.2)]`
+                            : `${nodeConfig.bg} border-white/10 ${nodeConfig.color} shadow-lg hover:border-purple-accent/30 hover:shadow-[0_0_15px_rgba(45,212,191,0.25)]`
                         }`}
                     >
                       {/* Holographic scanning vertical swipe inside bubbles */}
@@ -803,8 +791,8 @@ export default function Skills() {
               return (
                 <SpotlightCard
                   key={category.title}
-                  spotlightColor="rgba(236, 72, 153, 0.05)"
-                  borderColor="rgba(236, 72, 153, 0.25)"
+                  spotlightColor="rgba(20, 184, 166, 0.08)"
+                  borderColor="rgba(45, 212, 191, 0.3)"
                   className="p-6 sm:p-8 flex flex-col justify-between"
                 >
                   {/* Corner matrix effect */}

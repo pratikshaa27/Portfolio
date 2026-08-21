@@ -7,6 +7,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { motion } from "motion/react";
 import { Github, ExternalLink, Code2, Sparkles, BrainCircuit, Globe, Shield, ChevronLeft, ChevronRight, Layers } from "lucide-react";
 import { ProjectItem } from "../types";
+import { SectionHeader } from "./ScrollReveal";
 
 const projectsData: ProjectItem[] = [
   {
@@ -197,27 +198,13 @@ export default function Projects() {
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[120px] pointer-events-none -z-10"
       />
 
-      {/* Title */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="flex flex-col items-start text-left mb-8"
-      >
-        <span className="text-xs font-mono tracking-[0.3em] text-purple-accent uppercase mb-2">
-          04 / SHOWCASE
-        </span>
-        <h2 className="text-4xl md:text-6xl text-white font-medium flex items-center gap-3">
-          <span className="text-3xl md:text-5xl animate-pulse">✨</span>
-          Featured{" "}
-          <span className="font-display font-display-serif italic text-gradient">
-            Projects
-          </span>
-          <span className="text-3xl md:text-5xl animate-pulse">✨</span>
-        </h2>
-        <div className="w-16 h-[2px] bg-gradient-accent mt-4" />
-      </motion.div>
+      {/* 21st.dev Section Header */}
+      <SectionHeader
+        number="04 / SHOWCASE"
+        titlePrefix="Featured"
+        highlightedText="Projects"
+        emoji="✨"
+      />
 
       {/* Category Filter Pills */}
       <div className="flex flex-wrap items-center gap-2 mb-12 select-none">

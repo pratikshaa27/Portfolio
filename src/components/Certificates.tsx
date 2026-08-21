@@ -6,6 +6,7 @@
 import { motion } from "motion/react";
 import { Award, ShieldCheck, CheckCircle2, Trophy, Star, Sparkles } from "lucide-react";
 import { CertificateItem, AchievementItem } from "../types";
+import { SectionHeader } from "./ScrollReveal";
 
 const certificatesData: CertificateItem[] = [
   {
@@ -64,27 +65,13 @@ export default function Certificates() {
       id="certificates"
       className="py-24 px-4 md:px-8 max-w-7xl mx-auto scroll-mt-20"
     >
-      {/* Title */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="flex flex-col items-start text-left mb-16"
-      >
-        <span className="text-xs font-mono tracking-[0.3em] text-purple-accent uppercase mb-2">
-          05 / CREDENTIALS
-        </span>
-        <h2 className="text-4xl md:text-6xl text-white font-medium flex items-center gap-3">
-          <span className="text-3xl md:text-5xl animate-pulse">✨</span>
-          Certificates &{" "}
-          <span className="font-display font-display-serif italic text-gradient">
-            Achievements
-          </span>
-          <span className="text-3xl md:text-5xl animate-pulse">✨</span>
-        </h2>
-        <div className="w-16 h-[2px] bg-gradient-accent mt-4" />
-      </motion.div>
+      {/* 21st.dev Section Header */}
+      <SectionHeader
+        number="05 / CREDENTIALS"
+        titlePrefix="Certificates &"
+        highlightedText="Achievements"
+        emoji="✨"
+      />
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
         {/* Left: Verified Certifications (Timeline Card Layout) */}

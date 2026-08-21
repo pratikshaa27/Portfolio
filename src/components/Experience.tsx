@@ -7,6 +7,7 @@ import { motion } from "motion/react";
 import { Briefcase, ArrowRight, Shield, Globe, Terminal, Users } from "lucide-react";
 import { ExperienceItem } from "../types";
 import SpotlightCard from "./SpotlightCard";
+import { SectionHeader } from "./ScrollReveal";
 
 const experienceData: ExperienceItem[] = [
   {
@@ -66,27 +67,13 @@ export default function Experience() {
       id="experience"
       className="py-24 px-4 md:px-8 max-w-7xl mx-auto scroll-mt-20"
     >
-      {/* Title */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="flex flex-col items-start text-left mb-16"
-      >
-        <span className="text-xs font-mono tracking-[0.3em] text-purple-accent uppercase mb-2">
-          06 / EXPERIENCE
-        </span>
-        <h2 className="text-4xl md:text-6xl text-white font-medium flex items-center gap-3">
-          <span className="text-3xl md:text-5xl animate-pulse">✨</span>
-          Professional{" "}
-          <span className="font-display font-display-serif italic text-gradient">
-            Experience
-          </span>
-          <span className="text-3xl md:text-5xl animate-pulse">✨</span>
-        </h2>
-        <div className="w-16 h-[2px] bg-gradient-accent mt-4" />
-      </motion.div>
+      {/* 21st.dev Section Header */}
+      <SectionHeader
+        number="06 / EXPERIENCE"
+        titlePrefix="Professional"
+        highlightedText="Experience"
+        emoji="✨"
+      />
 
       {/* Grid of Experiences grouped nicely */}
       <div className="space-y-8 text-left">

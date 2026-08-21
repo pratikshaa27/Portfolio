@@ -6,6 +6,7 @@
 import { motion } from "motion/react";
 import { GraduationCap, Calendar, CheckCircle, Clock } from "lucide-react";
 import { EducationItem } from "../types";
+import { SectionHeader } from "./ScrollReveal";
 
 const educationData: EducationItem[] = [
   {
@@ -40,43 +41,35 @@ export default function Education() {
       id="education"
       className="py-24 px-4 md:px-8 max-w-7xl mx-auto scroll-mt-20"
     >
-      {/* Title */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="flex flex-col items-start text-left mb-16"
-      >
-        <span className="text-xs font-mono tracking-[0.3em] text-purple-accent uppercase mb-2">
-          02 / EDUCATION
-        </span>
-        <h2 className="text-4xl md:text-6xl text-white font-medium flex items-center gap-3">
-          <span className="text-3xl md:text-5xl animate-pulse">✨</span>
-          Education{" "}
-          <span className="font-display font-display-serif italic text-gradient">
-            History
-          </span>
-          <span className="text-3xl md:text-5xl animate-pulse">✨</span>
-        </h2>
-        <div className="w-16 h-[2px] bg-gradient-accent mt-4" />
-      </motion.div>
+      {/* 21st.dev Section Header */}
+      <SectionHeader
+        number="02 / EDUCATION"
+        titlePrefix="Education"
+        highlightedText="History"
+        emoji="✨"
+      />
 
       {/* Vertical Timeline Wrapper */}
       <div className="relative border-l border-white/10 md:ml-32 pl-8 md:pl-12 space-y-12 text-left">
-        {/* Timeline glowing neon line overlay */}
-        <div className="absolute top-0 bottom-0 left-[-1px] w-[2px] bg-gradient-to-b from-purple-accent via-blue-accent to-pink-accent opacity-50" />
+        {/* Timeline glowing neon line overlay with scroll growth */}
+        <motion.div
+          initial={{ scaleY: 0 }}
+          whileInView={{ scaleY: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          className="absolute top-0 bottom-0 left-[-1px] w-[2px] bg-gradient-to-b from-teal-400 via-cyan-400 to-pink-accent origin-top shadow-[0_0_8px_rgba(45,212,191,0.6)]"
+        />
 
         {educationData.map((item, index) => {
           const isPursuing = item.status.toLowerCase() === "pursuing";
           return (
             <motion.div
               key={item.id}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -60 : 60 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ type: "spring", stiffness: 80, damping: 15, delay: index * 0.15 }}
-              className="relative group animate-[fadeIn_0.5s_ease_out]"
+              initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40, filter: "blur(8px)" }}
+              whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: index * 0.15 }}
+              className="relative group"
             >
               {/* Pulsating timeline anchor node */}
               <div className="absolute left-[-41px] md:left-[-57px] top-6 flex items-center justify-center">
