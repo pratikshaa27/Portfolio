@@ -119,7 +119,7 @@ export default function App() {
        {/* Main Portfolio System Container */}
       {!isLoading && (
         <div className="relative min-h-screen text-text select-none selection:bg-purple-accent/30 selection:text-white transition-opacity duration-1000 animate-[fadeIn_0.8s_ease_out]">
-          {/* Custom Cursor System */}
+          {/* Small Pink Custom Cursor Follower */}
           <CustomCursor />
 
           {/* Futuristic Particle & Stellar Background */}

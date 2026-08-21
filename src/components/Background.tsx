@@ -166,11 +166,32 @@ export default function Background() {
         ctx.stroke();
       }
 
-      // Draw particle stars
-      particles.forEach((particle) => {
-        particle.update(currentMouseX, currentMouseY);
-        particle.draw(ctx, isLight);
-      });
+      // Draw particle constellation lines
+      for (let i = 0; i < particles.length; i++) {
+        const p1 = particles[i];
+        p1.update(currentMouseX, currentMouseY);
+        p1.draw(ctx, isLight);
+
+        // Connect nearby particles
+        for (let j = i + 1; j < particles.length; j++) {
+          const p2 = particles[j];
+          const dx = p1.x - p2.x;
+          const dy = p1.y - p2.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < 100) {
+            const alpha = (1 - dist / 100) * 0.15;
+            ctx.beginPath();
+            ctx.moveTo(p1.x, p1.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.strokeStyle = isLight
+              ? `rgba(139, 92, 246, ${alpha})`
+              : `rgba(236, 72, 153, ${alpha})`;
+            ctx.lineWidth = 0.6;
+            ctx.stroke();
+          }
+        }
+      }
 
       // Subtle cybernetic glowing accent arcs/lines (abstract tech)
       ctx.beginPath();
@@ -208,15 +229,6 @@ export default function Background() {
       {/* Cybernetic horizontal laser separator lines */}
       <div className="absolute inset-x-0 top-1/3 h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
       <div className="absolute inset-x-0 top-2/3 h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
-
-      {/* Cursor ambient glow follow overlay */}
-      <div
-        className="absolute cursor-glow rounded-full mix-blend-screen pointer-events-none"
-        style={{
-          left: mousePos.x,
-          top: mousePos.y,
-        }}
-      />
     </div>
   );
 }

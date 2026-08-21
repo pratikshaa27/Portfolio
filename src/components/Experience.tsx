@@ -6,6 +6,7 @@
 import { motion } from "motion/react";
 import { Briefcase, ArrowRight, Shield, Globe, Terminal, Users } from "lucide-react";
 import { ExperienceItem } from "../types";
+import SpotlightCard from "./SpotlightCard";
 
 const experienceData: ExperienceItem[] = [
   {
@@ -96,8 +97,12 @@ export default function Experience() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: index * 0.15 }}
-            className="rounded-[32px] glass-panel p-6 sm:p-8 relative overflow-hidden group hover:border-purple-accent/25 transition-all duration-300"
           >
+            <SpotlightCard
+              spotlightColor="rgba(236, 72, 153, 0.05)"
+              borderColor="rgba(236, 72, 153, 0.25)"
+              className="p-6 sm:p-8"
+            >
             {/* Visual top indicator line */}
             <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-purple-accent/20 to-transparent" />
 
@@ -143,6 +148,7 @@ export default function Experience() {
             <div className="absolute bottom-4 right-4 text-white/5 font-mono text-[9px] select-none pointer-events-none">
               RECORD 0{index + 1}
             </div>
+            </SpotlightCard>
           </motion.div>
         ))}
       </div>

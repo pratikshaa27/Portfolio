@@ -6,6 +6,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Mail, MapPin, Linkedin, Github, Send, Terminal, Phone, Copy, Check } from "lucide-react";
+import SpotlightCard from "./SpotlightCard";
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -52,8 +53,13 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="lg:col-span-5 rounded-[32px] glass-panel p-8 md:p-10 flex flex-col justify-between relative overflow-hidden text-left"
+          className="lg:col-span-5"
         >
+          <SpotlightCard
+            spotlightColor="rgba(236, 72, 153, 0.05)"
+            borderColor="rgba(236, 72, 153, 0.25)"
+            className="p-8 md:p-10 flex flex-col justify-between h-full text-left"
+          >
           {/* Subtle watermark background */}
           <div className="absolute right-[-20px] bottom-[-20px] text-white/5 font-mono text-9xl font-bold select-none pointer-events-none">
             @
@@ -192,6 +198,7 @@ export default function Contact() {
               </motion.a>
             </div>
           </div>
+          </SpotlightCard>
         </motion.div>
 
         {/* RIGHT: High-End Contact Form */}
@@ -200,8 +207,13 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="lg:col-span-7 rounded-[32px] glass-panel p-8 md:p-10 flex flex-col justify-between relative overflow-hidden"
+          className="lg:col-span-7"
         >
+          <SpotlightCard
+            spotlightColor="rgba(236, 72, 153, 0.05)"
+            borderColor="rgba(236, 72, 153, 0.25)"
+            className="p-8 md:p-10 flex flex-col justify-between h-full"
+          >
           <div className="absolute right-0 top-0 w-[150px] h-[150px] bg-gradient-to-bl from-purple-500/5 to-transparent blur-2xl pointer-events-none" />
 
           {/* Form Header HUD */}
@@ -297,6 +309,7 @@ export default function Contact() {
               </button>
             </div>
           </form>
+          </SpotlightCard>
         </motion.div>
       </div>
     </section>

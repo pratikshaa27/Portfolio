@@ -4,8 +4,9 @@
  */
 
 import { useEffect, useRef } from "react";
-import { BookOpen, Laptop, Compass, Heart, GraduationCap } from "lucide-react";
+import { BookOpen, Laptop, Compass, Heart, GraduationCap, Sparkles, Award } from "lucide-react";
 import { motion, animate } from "motion/react";
+import SpotlightCard from "./SpotlightCard";
 
 interface CountUpProps {
   value: number;
@@ -100,82 +101,54 @@ export default function About() {
       </motion.div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-        {/* Left: Statement of Purpose (Premium Floating Document Card) */}
+        {/* Left: Statement of Purpose (21st.dev Spotlight Bento Card) */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          animate={{
-            y: [0, -6, 0],
-          }}
-          // Separate continuous float from entrance animation
-          className="lg:col-span-7 rounded-[32px] glass-panel p-8 md:p-10 flex flex-col justify-between relative overflow-hidden"
-          style={{
-            animation: "float 6s ease-in-out infinite",
-          }}
+          className="lg:col-span-7"
         >
-          {/* Subtle watermark background */}
-          <div className="absolute right-6 top-8 text-white/5 font-mono text-8xl font-bold select-none pointer-events-none">
-            01
-          </div>
+          <SpotlightCard className="p-8 md:p-10 flex flex-col justify-between h-full" spotlightColor="rgba(236, 72, 153, 0.05)" borderColor="rgba(236, 72, 153, 0.25)">
+            {/* Subtle watermark background */}
+            <div className="absolute right-6 top-8 text-white/5 font-mono text-8xl font-bold select-none pointer-events-none">
+              01
+            </div>
 
-          <div>
-            {/* Header style */}
-            <div className="flex items-center gap-3 mb-8 border-b border-white/5 pb-6">
-              <div className="w-10 h-10 rounded-xl bg-purple-accent/10 border border-purple-accent/20 flex items-center justify-center">
-                <GraduationCap className="w-5 h-5 text-purple-accent" />
+            <div>
+              {/* Header style */}
+              <div className="flex items-center gap-3 mb-8 border-b border-white/10 pb-6">
+                <div className="w-10 h-10 rounded-xl bg-purple-500/15 border border-purple-500/30 flex items-center justify-center">
+                  <GraduationCap className="w-5 h-5 text-purple-400" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-white text-lg leading-tight">Executive Profile</h3>
+                  <span className="text-[10px] font-mono text-purple-300 uppercase tracking-widest">21ST.DEV CERTIFIED</span>
+                </div>
               </div>
-              <div>
-                <h3 className="font-bold text-white text-lg leading-tight">Professional Summary</h3>
-                <span className="text-[10px] font-mono text-white/40 uppercase">EXECUTIVE BRIEF</span>
+
+              {/* Document Content */}
+              <div className="space-y-5 text-white/80 text-sm sm:text-base leading-relaxed text-left font-sans">
+                <p>
+                  My name is <strong className="text-white font-semibold">Pratiksha Khandbahale</strong>, and I am a passionate Artificial Intelligence & Data Science engineer currently working as a Junior Associate in the Software Division at ESDS Software Solution Limited.
+                </p>
+                <p>
+                  I specialize in building intelligent, scalable, and visually captivating full-stack applications. My work sits at the intersection of AI algorithms, real-time data pipelines, and responsive web animations.
+                </p>
+                <p>
+                  With hands-on experience in modern JavaScript frameworks (React, Next.js), Python backend architectures, and machine learning models, I focus on delivering clean, performant code that drives real business value.
+                </p>
               </div>
             </div>
 
-            {/* Document Content */}
-            <div className="space-y-6 text-white/80 text-sm sm:text-base leading-relaxed text-left">
-              <motion.p
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
-                My name is <strong className="text-white font-semibold">Pratiksha Khandbahale</strong>, and I am a passionate Artificial Intelligence & Data Science graduate currently working as a Junior Associate in the Software Division at ESDS Software Solution Limited.
-              </motion.p>
-              <motion.p
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-              >
-                I am driven by a strong interest in building intelligent, scalable, and user-focused software solutions. My passion lies at the intersection of Artificial Intelligence, Data Science, and Full Stack Development, where I continuously explore modern technologies and apply them to solve real-world problems.
-              </motion.p>
-              <motion.p
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-              >
-                With hands-on experience in software development, backend systems, databases, and AI-driven solutions, I focus on writing clean, efficient, and maintainable code while continuously improving my technical expertise.
-              </motion.p>
-              <motion.p
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-              >
-                I believe technology has the power to create meaningful impact, and my goal is to contribute to innovative projects, collaborate with talented teams, and grow as a software professional by building solutions that make a difference.
-              </motion.p>
+            {/* Footer of the statement card */}
+            <div className="mt-10 pt-6 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-white/40">
+              <span className="flex items-center gap-1.5 text-purple-400">
+                <Heart className="w-3.5 h-3.5 fill-purple-500/20 text-purple-400" /> Passion driven development.
+              </span>
+              <span>PRATIKSHA KHANDBAHALE</span>
             </div>
-          </div>
-
-          {/* Footer of the statement card */}
-          <div className="mt-10 pt-6 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-white/40">
-            <span className="flex items-center gap-1.5 text-purple-accent/80">
-              <Heart className="w-3.5 h-3.5 fill-purple-accent/20" /> Passion driven development.
-            </span>
-            <span>PRATIKSHA KHANDBAHALE</span>
-          </div>
+          </SpotlightCard>
         </motion.div>
 
         {/* Right: Current Focus Cards */}

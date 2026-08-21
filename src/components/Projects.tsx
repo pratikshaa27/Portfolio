@@ -98,12 +98,19 @@ const getProjectDetails = (id: string, category: string) => {
 };
 
 export default function Projects() {
+  const [activeCategory, setActiveCategory] = useState("All");
   const [activeIndex, setActiveIndex] = useState(0);
   const [windowWidth, setWindowWidth] = useState(typeof window !== "undefined" ? window.innerWidth : 1200);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
   const [isAutoplayPaused, setIsAutoplayPaused] = useState(false);
   const activeCardRef = useRef<HTMLDivElement | null>(null);
+
+  const categories = ["All", "AI & ML", "Mobile Dev"];
+
+  const filteredProjects = activeCategory === "All"
+    ? projectsData
+    : projectsData.filter((p) => p.category === activeCategory);
 
   // Resize listener for responsive 3D values
   useEffect(() => {
@@ -112,7 +119,7 @@ export default function Projects() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const total = projectsData.length;
+  const total = filteredProjects.length;
 
   // Auto-rotation effect with hover-pause functionality
   useEffect(() => {
@@ -196,7 +203,7 @@ export default function Projects() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="flex flex-col items-start text-left mb-12 sm:mb-16"
+        className="flex flex-col items-start text-left mb-8"
       >
         <span className="text-xs font-mono tracking-[0.3em] text-purple-accent uppercase mb-2">
           04 / SHOWCASE
@@ -212,13 +219,35 @@ export default function Projects() {
         <div className="w-16 h-[2px] bg-gradient-accent mt-4" />
       </motion.div>
 
+      {/* Category Filter Pills */}
+      <div className="flex flex-wrap items-center gap-2 mb-12 select-none">
+        {categories.map((cat) => {
+          const isSelected = activeCategory === cat;
+          return (
+            <button
+              key={cat}
+              onClick={() => {
+                setActiveCategory(cat);
+                setActiveIndex(0);
+              }}
+              className={`px-4 py-2 rounded-full text-xs font-mono tracking-wider transition-all duration-300 cursor-pointer ${isSelected
+                  ? "bg-gradient-to-r from-pink-500 via-rose-500 to-pink-500 text-white shadow-[0_0_20px_rgba(236,72,153,0.4)] border border-pink-400 font-bold"
+                  : "bg-white text-slate-800 border border-slate-200/80 hover:border-pink-400 hover:text-pink-600 shadow-sm font-semibold"
+                }`}
+            >
+              {cat}
+            </button>
+          );
+        })}
+      </div>
+
       {/* 3D Carousel Perspective Stage */}
-      <div 
+      <div
         onMouseEnter={() => setIsAutoplayPaused(true)}
         onMouseLeave={() => setIsAutoplayPaused(false)}
         className="relative w-full h-[460px] sm:h-[480px] md:h-[500px] flex items-center justify-center [perspective:1200px] [transform-style:preserve-3d] select-none"
       >
-        {projectsData.map((project, index) => {
+        {filteredProjects.map((project, index) => {
           const offset = getWrappedOffset(index, activeIndex, total);
           const absOffset = Math.abs(offset);
           const isActive = index === activeIndex;
@@ -274,9 +303,8 @@ export default function Projects() {
                   : "rotateX(0deg) rotateY(0deg) translateZ(0px)",
                 transition: isActive && isHovered ? "none" : "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
               }}
-              className={`absolute w-[290px] sm:w-[380px] md:w-[480px] h-[340px] sm:h-[370px] md:h-[400px] rounded-[32px] glass-panel p-6 sm:p-8 md:p-10 flex flex-col justify-between overflow-hidden group/card border border-white/10 ${
-                isActive ? "cursor-grab active:cursor-grabbing hover:border-purple-accent/30 shadow-[0_20px_50px_rgba(0,0,0,0.5)]" : "cursor-pointer opacity-40 hover:opacity-75"
-              }`}
+              className={`absolute w-[290px] sm:w-[380px] md:w-[480px] h-[340px] sm:h-[370px] md:h-[400px] rounded-[32px] glass-panel p-6 sm:p-8 md:p-10 flex flex-col justify-between overflow-hidden group/card border border-white/10 ${isActive ? "cursor-grab active:cursor-grabbing hover:border-purple-accent/30 shadow-[0_20px_50px_rgba(0,0,0,0.5)]" : "cursor-pointer opacity-40 hover:opacity-75"
+                }`}
             >
               {/* Overlay Glass Blur and darkening for inactive cards */}
               {!isActive && (
@@ -370,7 +398,7 @@ export default function Projects() {
 
           {/* Glowing Indicator Dots */}
           <div className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full backdrop-blur-md shadow-inner">
-            {projectsData.map((_, index) => (
+            {filteredProjects.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setActiveIndex(index)}
@@ -379,11 +407,10 @@ export default function Projects() {
                 aria-label={`Jump to project ${index + 1}`}
               >
                 <div
-                  className={`absolute inset-0 rounded-full transition-all duration-500 ${
-                    index === activeIndex
+                  className={`absolute inset-0 rounded-full transition-all duration-500 ${index === activeIndex
                       ? "bg-purple-accent shadow-[0_0_8px_rgba(139,92,246,0.8)]"
                       : "bg-white/20 group-hover/dot:bg-white/40"
-                  }`}
+                    }`}
                 />
               </button>
             ))}

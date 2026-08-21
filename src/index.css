@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Syne:wght@700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", var(--font-sans);
-  --font-display: "Plus Jakarta Sans", var(--font-sans);
+  --font-sans: "Plus Jakarta Sans", var(--font-sans);
+  --font-display: "Syne", var(--font-sans);
+  --font-impact: "Anton", "Bebas Neue", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
   --color-bg: var(--bg);
@@ -24,11 +25,11 @@
     --card: rgba(255, 255, 255, 0.02);
     --text: #F8FAFC;
     --muted: #94A3B8;
-    
+
     --purple: #EC4899;
     --blue: #F43F5E;
     --pink: #FB7185;
-    
+
     --accent-gradient: linear-gradient(90deg, #EC4899, #F43F5E, #FB7185);
   }
 
@@ -38,11 +39,11 @@
     --card: rgba(15, 23, 42, 0.02);
     --text: #090A10;
     --muted: #475569;
-    
+
     --purple: #EC4899;
     --blue: #F43F5E;
     --pink: #FB7185;
-    
+
     --accent-gradient: linear-gradient(90deg, #EC4899, #F43F5E, #FB7185);
   }
 
@@ -66,9 +67,11 @@
   ::-webkit-scrollbar {
     width: 6px;
   }
+
   ::-webkit-scrollbar-track {
     background: var(--bg);
   }
+
   ::-webkit-scrollbar-thumb {
     background: linear-gradient(180deg, var(--purple), var(--blue));
     border-radius: 9999px;
@@ -108,7 +111,7 @@
   .glass-panel-hover {
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  
+
   .glass-panel-hover:hover {
     background: rgba(15, 23, 42, 0.6);
     border-color: rgba(236, 72, 153, 0.3);
@@ -124,6 +127,7 @@
   .glow-purple {
     box-shadow: 0 0 25px rgba(236, 72, 153, 0.25);
   }
+
   .light .glow-purple {
     box-shadow: 0 0 25px rgba(219, 39, 119, 0.1);
   }
@@ -131,6 +135,7 @@
   .glow-blue {
     box-shadow: 0 0 25px rgba(244, 63, 94, 0.25);
   }
+
   .light .glow-blue {
     box-shadow: 0 0 25px rgba(225, 29, 72, 0.1);
   }
@@ -138,6 +143,7 @@
   .glow-pink {
     box-shadow: 0 0 25px rgba(251, 113, 133, 0.2);
   }
+
   .light .glow-pink {
     box-shadow: 0 0 25px rgba(236, 72, 153, 0.1);
   }
@@ -155,7 +161,7 @@
 .cursor-glow {
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(236, 72, 153, 0.08) 0%, rgba(244, 63, 94, 0.04) 50%, rgba(0,0,0,0) 70%);
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.08) 0%, rgba(244, 63, 94, 0.04) 50%, rgba(0, 0, 0, 0) 70%);
   pointer-events: none;
   transform: translate(-50%, -50%);
   transition: width 0.3s ease, height 0.3s ease;
@@ -163,14 +169,17 @@
 }
 
 .light .cursor-glow {
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.06) 0%, rgba(2, 132, 199, 0.02) 50%, rgba(0,0,0,0) 70%);
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.06) 0%, rgba(2, 132, 199, 0.02) 50%, rgba(0, 0, 0, 0) 70%);
 }
 
 /* Keyframes for animations */
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px) rotate(0deg);
   }
+
   50% {
     transform: translateY(-10px) rotate(2deg);
   }
@@ -181,16 +190,20 @@
     transform: translateY(0);
     opacity: 0.1;
   }
+
   15% {
     opacity: 0.8;
   }
+
   50% {
     transform: translateY(398px);
     opacity: 0.8;
   }
+
   85% {
     opacity: 0.8;
   }
+
   100% {
     transform: translateY(0);
     opacity: 0.1;
@@ -202,10 +215,13 @@
 }
 
 @keyframes pulse-slow {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.2;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.5;
     transform: scale(1.15);
@@ -216,6 +232,92 @@
   animation: pulse-slow 8s ease-in-out infinite;
 }
 
+/* 21st.dev-inspired premium animation keyframes */
+@keyframes shimmerSweep {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes breatheGlow {
+  0%, 100% {
+    box-shadow: 0 12px 35px rgba(236, 72, 153, 0.12), 0 0 0 rgba(236, 72, 153, 0);
+  }
+  50% {
+    box-shadow: 0 16px 45px rgba(236, 72, 153, 0.22), 0 0 25px rgba(236, 72, 153, 0.15);
+  }
+}
+
+@keyframes heroCharReveal {
+  0% {
+    opacity: 0;
+    filter: blur(16px);
+    transform: translateY(40px) scale(0.9);
+  }
+  60% {
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes counterDigitRoll {
+  0% {
+    transform: translateY(100%) rotateX(-90deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes loaderCurtainUp {
+  0% {
+    transform: translateY(0%);
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+  }
+  100% {
+    transform: translateY(-105%);
+    border-bottom-left-radius: 50% 20%;
+    border-bottom-right-radius: 50% 20%;
+  }
+}
+
+@keyframes loaderContentScale {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+    filter: blur(0px);
+  }
+  100% {
+    transform: scale(5);
+    opacity: 0;
+    filter: blur(20px);
+  }
+}
+
+.animate-shimmer-sweep {
+  background-size: 200% 100%;
+  animation: shimmerSweep 3s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+.animate-breathe-glow {
+  animation: breatheGlow 4s ease-in-out infinite;
+}
+
+.light .animate-breathe-glow {
+  box-shadow: 0 12px 35px rgba(236, 72, 153, 0.15);
+}
+
 /* Custom layout typography helper */
 .font-display-serif {
   font-family: var(--font-display);
@@ -223,7 +325,9 @@
 
 /* Print styles to handle clean single-page PDF generation of the Resume */
 @media print {
-  html, body {
+
+  html,
+  body {
     background-color: #ffffff !important;
     background-image: none !important;
     color: #000000 !important;
@@ -232,10 +336,10 @@
   }
 
   /* Hide the root app and any background canvas elements */
-  #root > div:not(.print-container-wrapper),
-  #root > section,
-  #root > nav,
-  #root > footer,
+  #root>div:not(.print-container-wrapper),
+  #root>section,
+  #root>nav,
+  #root>footer,
   canvas {
     display: none !important;
   }
@@ -281,68 +385,107 @@
 }
 
 /* ==========================================================================
-   LIGHT MODE OVERRIDES
+   LIGHT MODE OVERRIDES - UI/UX PRO MAX HIGH-CONTRAST PERFECT STYLING
    ========================================================================== */
 
+.light {
+  --bg: #F8FAFC;
+  --surface: rgba(255, 255, 255, 0.88);
+  --card: rgba(255, 255, 255, 0.95);
+  --text: #0F172A;
+  --muted: #475569;
+
+  --purple: #EC4899;
+  --blue: #F43F5E;
+  --pink: #FB7185;
+
+  --accent-gradient: linear-gradient(90deg, #EC4899, #F43F5E, #FB7185);
+}
+
 .light .text-white {
-  color: #0f172a !important; /* slate-900 */
+  color: #0f172a !important;
+  /* slate-900 */
 }
+
 .light .text-white\/95 {
-  color: rgba(15, 23, 42, 0.95) !important;
+  color: #0f172a !important;
 }
+
 .light .text-white\/90 {
-  color: rgba(15, 23, 42, 0.9) !important;
+  color: #1e293b !important;
+  /* slate-800 */
 }
+
 .light .text-white\/85 {
-  color: rgba(15, 23, 42, 0.85) !important;
+  color: #1e293b !important;
 }
+
 .light .text-white\/80 {
-  color: rgba(15, 23, 42, 0.8) !important;
+  color: #334155 !important;
+  /* slate-700 */
 }
+
 .light .text-white\/75 {
-  color: rgba(15, 23, 42, 0.75) !important;
+  color: #334155 !important;
 }
+
 .light .text-white\/70 {
-  color: rgba(15, 23, 42, 0.7) !important;
+  color: #334155 !important;
 }
+
 .light .text-white\/65 {
-  color: rgba(15, 23, 42, 0.65) !important;
+  color: #475569 !important;
+  /* slate-600 */
 }
+
 .light .text-white\/60 {
-  color: rgba(15, 23, 42, 0.6) !important;
+  color: #475569 !important;
 }
+
 .light .text-white\/55 {
-  color: rgba(15, 23, 42, 0.55) !important;
+  color: #475569 !important;
 }
+
 .light .text-white\/50 {
-  color: rgba(15, 23, 42, 0.5) !important;
+  color: #64748b !important;
+  /* slate-500 */
 }
+
 .light .text-white\/45 {
-  color: rgba(15, 23, 42, 0.45) !important;
+  color: #64748b !important;
 }
+
 .light .text-white\/40 {
-  color: rgba(15, 23, 42, 0.4) !important;
+  color: #64748b !important;
 }
+
 .light .text-white\/35 {
-  color: rgba(15, 23, 42, 0.35) !important;
+  color: #64748b !important;
 }
+
 .light .text-white\/30 {
-  color: rgba(15, 23, 42, 0.3) !important;
+  color: #64748b !important;
 }
+
 .light .text-white\/25 {
-  color: rgba(15, 23, 42, 0.25) !important;
+  color: #94a3b8 !important;
+  /* slate-400 */
 }
+
 .light .text-white\/20 {
-  color: rgba(15, 23, 42, 0.2) !important;
+  color: #94a3b8 !important;
 }
+
 .light .text-white\/15 {
-  color: rgba(15, 23, 42, 0.15) !important;
+  color: #cbd5e1 !important;
 }
+
 .light .text-white\/10 {
-  color: rgba(15, 23, 42, 0.1) !important;
+  color: #e2e8f0 !important;
 }
+
 .light .text-white\/5 {
-  color: rgba(15, 23, 42, 0.05) !important;
+  color: #f1f5f9 !important;
 }
 
 .light h1,
@@ -358,95 +501,124 @@
 .light textarea::placeholder,
 .light .placeholder-white\/25::placeholder,
 .light .placeholder-white\/30::placeholder {
-  color: rgba(15, 23, 42, 0.4) !important;
+  color: #94a3b8 !important;
 }
 
 .light .bg-slate-950 {
-  background-color: #f1f5f9 !important; /* slate-100 */
+  background-color: #f8fafc !important;
+  /* slate-50 */
 }
+
 .light .bg-slate-950\/40 {
-  background-color: rgba(255, 255, 255, 0.65) !important;
+  background-color: rgba(255, 255, 255, 0.75) !important;
 }
+
 .light .bg-slate-950\/80 {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+}
+
+.light .bg-slate-950\/95 {
+  background-color: rgba(255, 255, 255, 0.98) !important;
+}
+
+.light .bg-slate-900 {
+  background-color: #ffffff !important;
+}
+
+.light .bg-slate-900\/40 {
+  background-color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.light .bg-slate-900\/50 {
   background-color: rgba(255, 255, 255, 0.88) !important;
 }
-.light .bg-slate-900 {
-  background-color: #e2e8f0 !important; /* slate-200 */
+
+.light .bg-slate-900\/60 {
+  background-color: rgba(255, 255, 255, 0.9) !important;
 }
-.light .bg-slate-900\/40 {
-  background-color: rgba(255, 255, 255, 0.5) !important;
+
+.light .bg-slate-900\/80 {
+  background-color: rgba(255, 255, 255, 0.95) !important;
 }
+
 .light .bg-white\/5 {
   background-color: rgba(15, 23, 42, 0.04) !important;
 }
+
 .light .bg-white\/2 {
   background-color: rgba(15, 23, 42, 0.02) !important;
 }
+
 .light .bg-white\/10 {
-  background-color: rgba(15, 23, 42, 0.08) !important;
+  background-color: rgba(15, 23, 42, 0.06) !important;
 }
 
 .light .border-white\/5 {
   border-color: rgba(15, 23, 42, 0.06) !important;
 }
+
 .light .border-white\/10 {
-  border-color: rgba(15, 23, 42, 0.12) !important;
+  border-color: rgba(15, 23, 42, 0.1) !important;
 }
+
 .light .border-white\/15 {
-  border-color: rgba(15, 23, 42, 0.18) !important;
+  border-color: rgba(15, 23, 42, 0.14) !important;
 }
+
 .light .border-white\/20 {
-  border-color: rgba(15, 23, 42, 0.24) !important;
+  border-color: rgba(15, 23, 42, 0.18) !important;
 }
 
 .light .glass-panel {
-  background: rgba(255, 255, 255, 0.65) !important;
+  background: rgba(255, 255, 255, 0.85) !important;
   border-color: rgba(15, 23, 42, 0.08) !important;
-  box-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.05) !important;
+  box-shadow: 0 10px 35px 0 rgba(15, 23, 42, 0.06) !important;
 }
 
 .light .glass-panel-hover:hover {
-  background: rgba(255, 255, 255, 0.85) !important;
-  border-color: rgba(109, 40, 217, 0.2) !important;
-  box-shadow: 0 12px 40px 0 rgba(109, 40, 217, 0.08) !important;
-}
-
-.light .cursor-glow {
-  background: radial-gradient(circle, rgba(109, 40, 217, 0.08) 0%, rgba(29, 78, 216, 0.03) 50%, rgba(0,0,0,0) 70%) !important;
+  background: rgba(255, 255, 255, 0.98) !important;
+  border-color: rgba(236, 72, 153, 0.3) !important;
+  box-shadow: 0 15px 45px 0 rgba(236, 72, 153, 0.1) !important;
 }
 
 .light ::-webkit-scrollbar-track {
   background: #f8fafc !important;
 }
 
-.light .placeholder-white\/30::placeholder {
-  color: rgba(15, 23, 42, 0.4) !important;
-}
-
-/* Ensure nice active tab item look */
+/* Ensure active nav items in light mode have high contrast text with pink tint */
 .light .bg-purple-500\/15 {
-  background-color: rgba(109, 40, 217, 0.08) !important;
-  border-color: rgba(109, 40, 217, 0.2) !important;
+  background-color: rgba(236, 72, 153, 0.15) !important;
+  border-color: rgba(236, 72, 153, 0.3) !important;
 }
 
-/* Maintain proper white text contrast on active gradient backgrounds/buttons */
-.light .bg-gradient-accent,
-.light .bg-gradient-accent *,
-.light .bg-gradient-primary,
-.light .bg-gradient-primary *,
-.light .gradient-primary,
-.light .gradient-primary *,
-.light button.bg-slate-900,
-.light button.bg-slate-900 * {
+/* Maintain proper pure white text contrast on active filled gradient/pink buttons & badges */
+button .bg-gradient-accent,
+button .bg-gradient-accent *,
+button .bg-gradient-to-r,
+button .bg-gradient-to-r *,
+.light button .bg-gradient-accent,
+.light button .bg-gradient-accent *,
+.light button .bg-purple-600,
+.light button .bg-purple-600 *,
+.light button .bg-pink-600,
+.light button .bg-pink-600 *,
+.light button .bg-gradient-to-r,
+.light button .bg-gradient-to-r * {
   color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background-clip: border-box !important;
+  -webkit-background-clip: border-box !important;
+  text-shadow: none !important;
 }
 
-/* Maintain pink brand colors for logo text gradients in light mode */
+/* Pink Brand Gradient for text-gradient in both Light & Dark modes */
+.text-gradient,
 .light .text-gradient {
   background: linear-gradient(90deg, #EC4899, #F43F5E, #FB7185) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
+  color: transparent !important;
 }
 
 /* Clean Light Mode Resume Document Sheet when Site is in Light Mode */
@@ -507,17 +679,20 @@
 .light .resume-modal-container .text-white {
   color: #0f172a !important;
 }
+
 .light .resume-modal-container .text-white\/95,
 .light .resume-modal-container .text-white\/90,
 .light .resume-modal-container .text-white\/85,
 .light .resume-modal-container .text-white\/80 {
   color: #1e293b !important;
 }
+
 .light .resume-modal-container .text-white\/75,
 .light .resume-modal-container .text-white\/70,
 .light .resume-modal-container .text-white\/60 {
   color: #475569 !important;
 }
+
 .light .resume-modal-container .text-white\/50,
 .light .resume-modal-container .text-white\/40,
 .light .resume-modal-container .text-white\/30 {
@@ -545,4 +720,3 @@
 .light .resume-modal-container button .text-white {
   color: #ffffff !important;
 }
-

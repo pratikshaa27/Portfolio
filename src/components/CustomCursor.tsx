@@ -96,50 +96,50 @@ export default function CustomCursor() {
 
   if (!isVisible) return null;
 
-  // Reduced subtle cursor styles
+  // Micro-small pink cursor styles
   const getCursorStyle = () => {
     switch (hoverState) {
       case "click":
         return {
-          width: 10,
-          height: 10,
+          width: 8,
+          height: 8,
           backgroundColor: "rgba(236, 72, 153, 0.8)",
           borderColor: "#EC4899",
           borderWidth: "1px",
         };
       case "hover":
         return {
-          width: 36,
-          height: 36,
-          backgroundColor: "rgba(236, 72, 153, 0.12)",
+          width: 20,
+          height: 20,
+          backgroundColor: "rgba(236, 72, 153, 0.08)",
           borderColor: "#EC4899",
-          borderWidth: "1.5px",
+          borderWidth: "1px",
         };
       case "text":
         return {
-          width: 3,
-          height: 20,
-          borderRadius: "2px",
-          backgroundColor: "#F43F5E",
+          width: 2,
+          height: 14,
+          borderRadius: "1px",
+          backgroundColor: "#EC4899",
           borderColor: "transparent",
           borderWidth: "0px",
         };
       case "project":
         return {
-          width: 64,
-          height: 64,
-          backgroundColor: "rgba(244, 63, 94, 0.18)",
-          borderColor: "#F43F5E",
-          borderWidth: "1.5px",
+          width: 24,
+          height: 24,
+          backgroundColor: "rgba(236, 72, 153, 0.1)",
+          borderColor: "#EC4899",
+          borderWidth: "1px",
         };
       case "default":
       default:
         return {
-          width: 16,
-          height: 16,
-          backgroundColor: "rgba(236, 72, 153, 0.05)",
-          borderColor: "rgba(236, 72, 153, 0.5)",
-          borderWidth: "1.5px",
+          width: 12,
+          height: 12,
+          backgroundColor: "transparent",
+          borderColor: "rgba(236, 72, 153, 0.4)",
+          borderWidth: "1px",
         };
     }
   };
@@ -148,17 +148,6 @@ export default function CustomCursor() {
 
   return (
     <>
-      {/* Subtle Minimal Pink Glow Follower (Reduced size & opacity) */}
-      <motion.div
-        className="fixed top-0 left-0 w-[150px] h-[150px] rounded-full bg-gradient-to-r from-pink-500/10 via-rose-500/05 to-transparent blur-[40px] pointer-events-none z-[9998] hidden md:block"
-        style={{
-          x: auraXSpring,
-          y: auraYSpring,
-          translateX: "-50%",
-          translateY: "-50%",
-        }}
-      />
-
       {/* Outer Ring Follower */}
       <motion.div
         className="fixed top-0 left-0 rounded-full pointer-events-none z-[10000] hidden md:block"
@@ -182,7 +171,7 @@ export default function CustomCursor() {
 
       {/* Inner Pink Dot */}
       <motion.div
-        className="fixed top-0 left-0 w-1.5 h-1.5 bg-pink-500 rounded-full pointer-events-none z-[10000] hidden md:block"
+        className="fixed top-0 left-0 w-1 h-1 bg-pink-500 rounded-full pointer-events-none z-[10000] hidden md:block"
         style={{
           x: cursorX,
           y: cursorY,
@@ -191,7 +180,7 @@ export default function CustomCursor() {
         }}
         animate={{
           opacity: hoverState === "text" || hoverState === "project" ? 0 : 1,
-          scale: hoverState === "click" ? 1.4 : 1,
+          scale: hoverState === "click" ? 1.3 : 1,
         }}
       />
 

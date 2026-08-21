@@ -81,12 +81,10 @@ export default function Education() {
               {/* Pulsating timeline anchor node */}
               <div className="absolute left-[-41px] md:left-[-57px] top-6 flex items-center justify-center">
                 <div className="relative flex items-center justify-center">
-                  <span className={`absolute inline-flex h-6 w-6 rounded-full opacity-35 animate-ping ${
-                    isPursuing ? "bg-purple-accent" : "bg-blue-accent"
-                  }`} />
-                  <span className={`relative inline-flex rounded-full h-4 w-4 border-2 border-slate-950 ${
-                    isPursuing ? "bg-purple-accent glow-purple" : "bg-blue-accent glow-blue"
-                  }`} />
+                  <span className={`absolute inline-flex h-6 w-6 rounded-full opacity-35 animate-ping ${isPursuing ? "bg-purple-accent" : "bg-blue-accent"
+                    }`} />
+                  <span className={`relative inline-flex rounded-full h-4 w-4 border-2 border-slate-950 ${isPursuing ? "bg-purple-accent glow-purple" : "bg-blue-accent glow-blue"
+                    }`} />
                 </div>
               </div>
 
@@ -110,7 +108,7 @@ export default function Education() {
 
               {/* Course Card glass panel */}
               <div className="rounded-3xl glass-panel p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden glass-panel-hover group-hover:translate-x-2 transition-transform duration-300">
-                
+
                 {/* Background active pulse blur for pursuing item */}
                 {isPursuing && (
                   <div className="absolute top-[-20%] right-[-10%] w-[150px] h-[150px] rounded-full bg-purple-600/10 blur-3xl pointer-events-none" />
@@ -132,11 +130,10 @@ export default function Education() {
                     </span>
 
                     {/* Status Pill */}
-                    <span className={`text-[10px] font-mono font-bold uppercase px-2.5 py-1 rounded-full flex items-center gap-1 border ${
-                      isPursuing 
-                        ? "bg-purple-500/10 text-purple-accent border-purple-500/20" 
+                    <span className={`text-[10px] font-mono font-bold uppercase px-2.5 py-1 rounded-full flex items-center gap-1 border ${isPursuing
+                        ? "bg-purple-500/10 text-purple-accent border-purple-500/20"
                         : "bg-pink-500/10 text-pink-accent border-pink-500/20"
-                    }`}>
+                      }`}>
                       {isPursuing ? <Clock className="w-3 h-3" /> : <CheckCircle className="w-3 h-3" />}
                       {item.status}
                     </span>

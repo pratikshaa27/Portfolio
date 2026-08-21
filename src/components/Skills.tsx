@@ -7,18 +7,19 @@ import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import SkillChart from "./SkillChart";
 import TechLogo from "./TechLogo";
-import { 
-  Code, 
-  Terminal, 
-  Database, 
-  BrainCircuit, 
-  Sparkles, 
-  Cpu, 
-  GitBranch, 
-  Layers, 
-  Smartphone, 
-  Clock, 
-  CheckSquare, 
+import SpotlightCard from "./SpotlightCard";
+import {
+  Code,
+  Terminal,
+  Database,
+  BrainCircuit,
+  Sparkles,
+  Cpu,
+  GitBranch,
+  Layers,
+  Smartphone,
+  Clock,
+  CheckSquare,
   HelpCircle,
   Info,
   Sliders,
@@ -451,13 +452,12 @@ export default function Skills() {
       {/* Ambient background glow responding to selected category or node */}
       <motion.div
         animate={{
-          background: `radial-gradient(circle, ${
-            activeNodeInfo 
-              ? categoryConfig[activeNodeInfo.category].glowColor 
-              : activeCategory !== "all" 
-                ? categoryConfig[activeCategory].glowColor 
+          background: `radial-gradient(circle, ${activeNodeInfo
+              ? categoryConfig[activeNodeInfo.category].glowColor
+              : activeCategory !== "all"
+                ? categoryConfig[activeCategory].glowColor
                 : "rgba(139, 92, 246, 0.04)"
-          } 0%, transparent 70%)`
+            } 0%, transparent 70%)`
         }}
         transition={{ duration: 0.6 }}
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[140px] pointer-events-none -z-10"
@@ -510,11 +510,10 @@ export default function Skills() {
                       setActiveCategory(key);
                       setClickedNode(null); // Clear selected node on category change
                     }}
-                    className={`flex items-center gap-2 px-3.5 py-2 rounded-2xl text-xs font-mono font-medium border transition-all cursor-pointer ${
-                      isActive
+                    className={`flex items-center gap-2 px-3.5 py-2 rounded-2xl text-xs font-mono font-medium border transition-all cursor-pointer ${isActive
                         ? `${config.color} ${config.borderGlow} ${config.bg} shadow-md backdrop-blur-md`
                         : "border-white/5 bg-white/[0.02] text-white/40 hover:text-white/80 hover:border-white/10"
-                    }`}
+                      }`}
                   >
                     {key !== "all" && IconComponent && <IconComponent className="w-3.5 h-3.5" />}
                     {config.label}
@@ -551,15 +550,14 @@ export default function Skills() {
                       left: `${(i * 7) % 95 + 2}%`,
                       top: `${(i * 13) % 90 + 5}%`,
                     }}
-                    className={`absolute w-1 sm:w-1.5 h-1 sm:h-1.5 rounded-full ${
-                      i % 4 === 0 
-                        ? "bg-purple-accent shadow-[0_0_6px_rgba(236,72,153,0.6)]" 
+                    className={`absolute w-1 sm:w-1.5 h-1 sm:h-1.5 rounded-full ${i % 4 === 0
+                        ? "bg-purple-accent shadow-[0_0_6px_rgba(236,72,153,0.6)]"
                         : i % 4 === 1
                           ? "bg-blue-accent shadow-[0_0_6px_rgba(244,63,94,0.6)]"
                           : i % 4 === 2
                             ? "bg-pink-accent shadow-[0_0_6px_rgba(251,113,133,0.6)]"
                             : "bg-pink-300 shadow-[0_0_6px_rgba(244,63,94,0.6)]"
-                    }`}
+                      }`}
                   />
                 ))}
               </div>
@@ -580,7 +578,7 @@ export default function Skills() {
                 {galaxySkillsData.map((node) => {
                   const nodeConfig = categoryConfig[node.category];
                   const Icon = node.icon;
-                  
+
                   // Category active filtering logic
                   const isDimmed = activeCategory !== "all" && node.category !== activeCategory;
                   const isHighlighted = activeCategory !== "all" && node.category === activeCategory;
@@ -598,10 +596,10 @@ export default function Skills() {
                       dragConstraints={containerRef}
                       dragElastic={0.12}
                       dragMomentum={true}
-                      initial={{ 
-                        opacity: 0, 
-                        scale: 0.4, 
-                        z: -200 
+                      initial={{
+                        opacity: 0,
+                        scale: 0.4,
+                        z: -200
                       }}
                       animate={{
                         opacity: isDimmed ? 0.15 : 1,
@@ -631,17 +629,15 @@ export default function Skills() {
                         e.stopPropagation();
                         setClickedNode(clickedNode?.name === node.name ? null : node);
                       }}
-                      className={`absolute -translate-x-1/2 -translate-y-1/2 rounded-full flex flex-col items-center justify-center cursor-grab active:cursor-grabbing border text-center font-sans transition-shadow duration-300 ${
-                        node.level === "Expert"
+                      className={`absolute -translate-x-1/2 -translate-y-1/2 rounded-full flex flex-col items-center justify-center cursor-grab active:cursor-grabbing border text-center font-sans transition-shadow duration-300 ${node.level === "Expert"
                           ? "w-20 h-20 sm:w-28 sm:h-28"
                           : "w-18 h-18 sm:w-24 sm:h-24"
-                      } ${
-                        isSelected 
+                        } ${isSelected
                           ? `${nodeConfig.bg} ${nodeConfig.borderGlow} ${nodeConfig.color} shadow-[0_0_24px_rgba(139,92,246,0.35)] ring-2 ring-purple-accent/40`
                           : isDimmed
                             ? "bg-slate-950/20 border-white/5 text-white/20 shadow-none"
                             : `${nodeConfig.bg} border-white/10 ${nodeConfig.color} shadow-lg hover:border-purple-accent/30 hover:shadow-[0_0_15px_rgba(167,139,250,0.2)]`
-                      }`}
+                        }`}
                     >
                       {/* Holographic scanning vertical swipe inside bubbles */}
                       {!isDimmed && (
@@ -702,10 +698,10 @@ export default function Skills() {
                         </p>
                       </div>
 
-                      <SkillChart 
-                        skillName={clickedNode.name} 
-                        category={clickedNode.category} 
-                        percent={clickedNode.percent} 
+                      <SkillChart
+                        skillName={clickedNode.name}
+                        category={clickedNode.category}
+                        percent={clickedNode.percent}
                       />
                     </div>
                   </motion.div>
@@ -805,9 +801,11 @@ export default function Skills() {
               const strokeDasharray = 2 * Math.PI * 18; // ~113.1
 
               return (
-                <div
+                <SpotlightCard
                   key={category.title}
-                  className={`rounded-3xl glass-panel p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden group border-transparent ${category.borderGlow} hover:shadow-[0_0_40px_rgba(139,92,246,0.1)] transition-all duration-500`}
+                  spotlightColor="rgba(236, 72, 153, 0.05)"
+                  borderColor="rgba(236, 72, 153, 0.25)"
+                  className="p-6 sm:p-8 flex flex-col justify-between"
                 >
                   {/* Corner matrix effect */}
                   <div className="absolute right-0 top-0 w-20 h-20 bg-[radial-gradient(rgba(255,255,255,0.015)_1px,transparent_1px)] [background-size:6px_6px] pointer-events-none" />
@@ -893,7 +891,7 @@ export default function Skills() {
                     <span>Verified Competency</span>
                     <span>Updated 2026</span>
                   </div>
-                </div>
+                </SpotlightCard>
               );
             })}
           </motion.div>
