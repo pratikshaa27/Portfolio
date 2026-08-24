@@ -10,8 +10,8 @@ interface SpotlightCardProps {
 export const SpotlightCard: React.FC<SpotlightCardProps> = ({
   children,
   className = "",
-  spotlightColor = "rgba(20, 184, 166, 0.08)",
-  borderColor = "rgba(45, 212, 191, 0.3)",
+  spotlightColor = "rgba(20, 184, 166, 0.12)",
+  borderColor = "rgba(45, 212, 191, 0.35)",
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
@@ -50,27 +50,33 @@ export const SpotlightCard: React.FC<SpotlightCardProps> = ({
       onMouseLeave={handleMouseLeave}
       onFocus={handleFocus}
       onBlur={handleBlur}
-      className={`relative overflow-hidden rounded-2xl border border-white/10 bg-slate-900/50 backdrop-blur-xl transition-all duration-300 ${className}`}
+      className={`glass-panel relative overflow-hidden rounded-3xl transition-all duration-500 ${className}`}
       style={{
         boxShadow: isFocused
-          ? `0 8px 25px -10px ${spotlightColor}, 0 0 15px 0 ${borderColor}`
-          : "none",
+          ? `0 20px 48px -10px ${spotlightColor}, 0 0 25px 0 ${borderColor}`
+          : undefined,
       }}
     >
-      {/* 21st.dev Radial Spotlight Layer - Reduced & Softened */}
+      {/* Frosted Glass Specular Reflection Overlay */}
       <div
-        className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 transition-opacity duration-300"
+        className="pointer-events-none absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-br from-white/[0.12] via-white/[0.02] to-transparent rounded-t-3xl"
+      />
+
+      {/* Radial Spotlight Layer */}
+      <div
+        className="pointer-events-none absolute -inset-px rounded-3xl opacity-0 transition-opacity duration-300"
         style={{
-          opacity: isFocused ? 0.6 : 0,
-          background: `radial-gradient(220px circle at ${position.x}px ${position.y}px, ${spotlightColor}, transparent 70%)`,
+          opacity: isFocused ? 0.7 : 0,
+          background: `radial-gradient(280px circle at ${position.x}px ${position.y}px, ${spotlightColor}, transparent 70%)`,
         }}
       />
-      {/* Border Glow Highlight */}
+
+      {/* Dynamic Interactive Border Glow Highlight */}
       <div
-        className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 transition-opacity duration-300"
+        className="pointer-events-none absolute -inset-px rounded-3xl opacity-0 transition-opacity duration-300"
         style={{
-          opacity: isFocused ? 0.8 : 0,
-          background: `radial-gradient(250px circle at ${position.x}px ${position.y}px, ${borderColor}, transparent 70%)`,
+          opacity: isFocused ? 0.85 : 0,
+          background: `radial-gradient(300px circle at ${position.x}px ${position.y}px, ${borderColor}, transparent 70%)`,
           maskImage: "linear-gradient(black, black) content-box, linear-gradient(black, black)",
           WebkitMaskImage: "linear-gradient(black, black) content-box, linear-gradient(black, black)",
           maskComposite: "exclude",
@@ -78,6 +84,7 @@ export const SpotlightCard: React.FC<SpotlightCardProps> = ({
           padding: "1px",
         }}
       />
+
       {/* Content wrapper */}
       <div className="relative z-10">{children}</div>
     </div>

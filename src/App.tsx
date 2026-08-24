@@ -39,12 +39,14 @@ export default function App() {
     return "dark";
   });
 
-  // Sync theme with document element
+  // Sync theme with document element (both light and dark classes for Tailwind CSS)
   useEffect(() => {
     const root = window.document.documentElement;
     if (theme === "light") {
       root.classList.add("light");
+      root.classList.remove("dark");
     } else {
+      root.classList.add("dark");
       root.classList.remove("light");
     }
     localStorage.setItem("portfolio-theme", theme);
@@ -124,10 +126,9 @@ export default function App() {
           <Navbar activeSection={activeSection} onNavClick={handleNavClick} theme={theme} onToggleTheme={toggleTheme} />
 
           {/* Main Layout Blocks */}
-          <main className="relative z-10 w-full overflow-hidden">
+          <main className="relative z-10 w-full overflow-x-hidden">
             {/* HERO MODULE */}
             <Hero onNavClick={handleNavClick} onOpenResume={() => setIsResumeOpen(true)} theme={theme} />
-
 
             {/* IDENTITY / ABOUT MODULE */}
             <ScrollReveal variant="blur-in">
@@ -140,9 +141,7 @@ export default function App() {
             </ScrollReveal>
 
             {/* ABILITIES / SKILLS MODULE */}
-            <ScrollReveal variant="scale-up">
-              <Skills />
-            </ScrollReveal>
+            <Skills />
 
             {/* SHOWCASE / PROJECTS MODULE */}
             <ScrollReveal variant="blur-in">
