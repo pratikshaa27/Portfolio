@@ -157,6 +157,9 @@ const SkillCard: React.FC<SkillCardProps> = ({ card, index, totalCards }) => {
           transformOrigin: "top center",
         }}
       >
+        {/* Top glass specular shimmer */}
+        <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/30 dark:via-white/20 to-transparent pointer-events-none" />
+
         {/* Subtle hover neon glow */}
         <div className="absolute -top-24 -right-24 w-48 h-48 rounded-full bg-teal-500/10 blur-3xl pointer-events-none group-hover:bg-teal-500/20 transition-all duration-500" />
 

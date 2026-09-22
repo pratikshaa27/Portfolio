@@ -124,10 +124,10 @@ export const TerminalAssistant: React.FC = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 30, scale: 0.95 }}
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
-            className="fixed bottom-6 right-6 z-50 w-full max-w-lg rounded-2xl border border-purple-500/30 bg-slate-950/95 shadow-2xl backdrop-blur-2xl overflow-hidden font-mono text-xs text-slate-200"
+            className="fixed bottom-6 right-6 z-50 w-full max-w-lg rounded-2xl border border-teal-500/30 glass-panel shadow-2xl backdrop-blur-2xl overflow-hidden font-mono text-xs text-slate-200"
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-4 py-3 bg-slate-900/80 border-b border-white/10 select-none">
+            <div className="flex items-center justify-between px-4 py-3 bg-white/[0.04] border-b border-white/10 select-none">
               <div className="flex items-center gap-2">
                 <div className="flex gap-1.5">
                   <button onClick={() => setIsOpen(false)} className="w-3 h-3 rounded-full bg-red-500/80 hover:bg-red-500" />
@@ -135,8 +135,8 @@ export const TerminalAssistant: React.FC = () => {
                   <div className="w-3 h-3 rounded-full bg-green-500/80" />
                 </div>
                 <div className="flex items-center gap-1.5 text-slate-400 text-[11px] ml-2">
-                  <Terminal className="w-3.5 h-3.5 text-purple-400" />
-                  <span>pratiksha@dev-terminal:~</span>
+                  <Terminal className="w-3.5 h-3.5 text-teal-400" />
+                  <span>dev@portfolio-terminal:~</span>
                 </div>
               </div>
 

@@ -21,6 +21,7 @@ import CustomCursor from "./components/CustomCursor";
 import {
   ScrollReveal,
   ScrollProgressBar,
+  ScrollVelocityBanner,
   useLenis,
 } from "./components/ScrollReveal";
 
@@ -39,7 +40,17 @@ export default function App() {
     return "dark";
   });
 
-  // Sync theme with document element (both light and dark classes for Tailwind CSS)
+  const [palette, setPalette] = useState<"teal" | "violet" | "sunset" | "ocean" | "matrix">(() => {
+    if (typeof window !== "undefined") {
+      const savedPalette = localStorage.getItem("portfolio-palette");
+      if (savedPalette && ["teal", "violet", "sunset", "ocean", "matrix"].includes(savedPalette)) {
+        return savedPalette as any;
+      }
+    }
+    return "teal";
+  });
+
+  // Sync theme & palette with document element
   useEffect(() => {
     const root = window.document.documentElement;
     if (theme === "light") {
@@ -49,8 +60,10 @@ export default function App() {
       root.classList.add("dark");
       root.classList.remove("light");
     }
+    root.setAttribute("data-palette", palette);
     localStorage.setItem("portfolio-theme", theme);
-  }, [theme]);
+    localStorage.setItem("portfolio-palette", palette);
+  }, [theme, palette]);
 
   const toggleTheme = () => {
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
@@ -116,8 +129,6 @@ export default function App() {
           {/* 21st.dev Top Neon Scroll Progress Bar */}
           <ScrollProgressBar />
 
-          {/* Small Pink Custom Cursor Follower */}
-          <CustomCursor />
 
           {/* Futuristic Particle & Stellar Background */}
           <Background />
@@ -128,7 +139,14 @@ export default function App() {
           {/* Main Layout Blocks */}
           <main className="relative z-10 w-full overflow-x-hidden">
             {/* HERO MODULE */}
-            <Hero onNavClick={handleNavClick} onOpenResume={() => setIsResumeOpen(true)} theme={theme} />
+            <Hero
+              onNavClick={handleNavClick}
+              onOpenResume={() => setIsResumeOpen(true)}
+              theme={theme}
+              onToggleTheme={toggleTheme}
+              palette={palette}
+              onPaletteChange={setPalette}
+            />
 
             {/* IDENTITY / ABOUT MODULE */}
             <ScrollReveal variant="blur-in">
@@ -147,6 +165,9 @@ export default function App() {
             <ScrollReveal variant="blur-in">
               <Projects />
             </ScrollReveal>
+
+            {/* 21st.dev Kinetic Scroll Velocity Banner */}
+            <ScrollVelocityBanner />
 
             {/* MERITS / CERTIFICATES MODULE */}
             <ScrollReveal variant="fade-up">

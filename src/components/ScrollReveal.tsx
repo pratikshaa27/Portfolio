@@ -335,7 +335,7 @@ export function SectionHeader({
       </div>
 
       {/* Main Title */}
-      <h2 className="text-4xl md:text-6xl text-white font-medium flex items-center gap-3 tracking-tight">
+      <h2 className="text-4xl md:text-6xl text-slate-900 dark:text-white font-medium flex items-center gap-3 tracking-tight">
         <span className="text-3xl md:text-5xl animate-pulse">{emoji}</span>
         {titlePrefix}{" "}
         <span className="font-display font-display-serif italic text-gradient">
@@ -374,10 +374,10 @@ export function ScrollVelocityBanner({
   const skewVelocity = useTransform(smoothVelocity, [-1000, 1000], [-3, 3]);
 
   return (
-    <div className="relative w-full overflow-hidden py-6 select-none pointer-events-none opacity-80">
+    <div className="relative w-full overflow-hidden py-6 select-none pointer-events-none opacity-80 my-4 border-y border-teal-500/20 bg-teal-950/[0.08]">
       <motion.div
         style={{ skewX: skewVelocity }}
-        className="flex whitespace-nowrap gap-8 text-xs sm:text-sm font-mono tracking-[0.3em] uppercase text-white/30"
+        className="flex whitespace-nowrap gap-8 text-xs sm:text-sm font-mono tracking-[0.3em] uppercase text-teal-400/70"
       >
         <motion.div
           animate={{ x: [0, -1000] }}
@@ -419,7 +419,7 @@ export function FloatingScrollTracker({
   const [hovered, setHovered] = useState<string | null>(null);
 
   return (
-    <div className="hidden lg:flex fixed right-6 top-1/2 -translate-y-1/2 z-40 flex-col items-center gap-3 p-2 rounded-full bg-slate-900/40 dark:bg-slate-950/60 light:bg-white/60 backdrop-blur-xl border border-white/10 shadow-2xl">
+    <div className="hidden lg:flex fixed right-5 top-1/2 -translate-y-1/2 z-40 flex-col items-center gap-3 p-2.5 rounded-full bg-slate-950/70 border border-teal-500/20 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.35)]">
       {sectionNavList.map((sec) => {
         const isActive = activeSection === sec.id;
         const isHover = hovered === sec.id;
@@ -443,20 +443,17 @@ export function FloatingScrollTracker({
                   backgroundColor: isActive
                     ? "rgb(45, 212, 191)"
                     : isHover
-                    ? "rgba(255, 255, 255, 0.7)"
+                    ? "rgba(255, 255, 255, 0.8)"
                     : "rgba(255, 255, 255, 0.25)",
                 }}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  isActive ? "shadow-[0_0_10px_rgba(45,212,191,0.9)]" : ""
+                  isActive ? "shadow-[0_0_12px_rgba(45,212,191,0.9)]" : ""
                 }`}
               />
 
               {/* Active pulsing outer halo */}
               {isActive && (
-                <motion.div
-                  layoutId="active-nav-dot"
-                  className="absolute inset-0 rounded-full border border-teal-400/60 animate-ping pointer-events-none"
-                />
+                <span className="absolute inset-0 rounded-full border border-teal-400/60 animate-ping pointer-events-none" />
               )}
             </button>
 
@@ -466,7 +463,7 @@ export function FloatingScrollTracker({
                 initial={{ opacity: 0, x: 10, scale: 0.9 }}
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 exit={{ opacity: 0, x: 10, scale: 0.9 }}
-                className="absolute right-9 px-2.5 py-1 rounded-lg bg-slate-900/90 text-white text-[10px] font-mono tracking-wider border border-white/10 shadow-xl whitespace-nowrap pointer-events-none backdrop-blur-md"
+                className="absolute right-9 px-2.5 py-1 rounded-lg bg-slate-900/95 text-white text-[10px] font-mono tracking-wider border border-teal-500/30 shadow-xl whitespace-nowrap pointer-events-none backdrop-blur-md"
               >
                 {sec.label}
               </motion.span>

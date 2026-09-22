@@ -222,13 +222,17 @@ export default function Background() {
       {/* Space background canvas */}
       <canvas ref={canvasRef} className="absolute inset-0 block" />
 
-      {/* Dynamic ambient background gradients matching photo's teal & glacier colors */}
-      <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-[#0D9488] opacity-10 blur-[140px] animate-pulse-slow pointer-events-none" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] rounded-full bg-[#0284C7] opacity-10 blur-[160px] animate-pulse-slow pointer-events-none" style={{ animationDelay: "-4s" }} />
+      {/* Dynamic ambient background gradients for rich frosted glass refraction across the entire page */}
+      <div className="absolute top-[-5%] left-[-10%] w-[55%] h-[45%] rounded-full bg-[#0D9488] opacity-15 blur-[150px] pointer-events-none" />
+      <div className="absolute top-[20%] right-[-10%] w-[50%] h-[45%] rounded-full bg-[#06B6D4] opacity-12 blur-[160px] pointer-events-none" />
+      <div className="absolute top-[45%] left-[-5%] w-[45%] h-[40%] rounded-full bg-[#14B8A6] opacity-12 blur-[150px] pointer-events-none" />
+      <div className="absolute top-[68%] right-[-5%] w-[50%] h-[45%] rounded-full bg-[#0284C7] opacity-14 blur-[160px] pointer-events-none" />
+      <div className="absolute bottom-[-5%] left-[20%] w-[55%] h-[45%] rounded-full bg-[#0D9488] opacity-15 blur-[150px] pointer-events-none" />
 
       {/* Cybernetic horizontal laser separator lines */}
-      <div className="absolute inset-x-0 top-1/3 h-[1px] bg-gradient-to-r from-transparent via-teal-500/10 to-transparent" />
-      <div className="absolute inset-x-0 top-2/3 h-[1px] bg-gradient-to-r from-transparent via-cyan-500/10 to-transparent" />
+      <div className="absolute inset-x-0 top-1/4 h-[1px] bg-gradient-to-r from-transparent via-teal-500/10 to-transparent" />
+      <div className="absolute inset-x-0 top-1/2 h-[1px] bg-gradient-to-r from-transparent via-cyan-500/10 to-transparent" />
+      <div className="absolute inset-x-0 top-3/4 h-[1px] bg-gradient-to-r from-transparent via-teal-500/10 to-transparent" />
     </div>
   );
 }
