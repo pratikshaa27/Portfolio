@@ -195,7 +195,7 @@ export default function Hero({
     },
   };
 
-  const fadeInUpVariant = {
+  const fadeInUpVariant: any = {
     hidden: { opacity: 0, y: 22, filter: "blur(6px)" },
     visible: {
       opacity: 1,
@@ -208,7 +208,7 @@ export default function Hero({
     },
   };
 
-  const scaleUpVariant = {
+  const scaleUpVariant: any = {
     hidden: { opacity: 0, scale: 0.94, y: 15 },
     visible: {
       opacity: 1,

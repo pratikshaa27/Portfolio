@@ -80,21 +80,18 @@ export default function Navbar({ activeSection, onNavClick, theme, onToggleTheme
             style={{ width: `${scrollProgress}%` }}
           />
 
-          {/* Left: Minimalist Home Icon Button */}
+          {/* Left: PK Brand Logo Button */}
           <button
             onClick={() => handleItemClick("home")}
-            className="flex items-center group cursor-pointer p-0.5"
-            aria-label="Scroll to home"
+            className="flex items-center gap-2 group cursor-pointer p-0.5"
+            aria-label="Pratiksha Khandbahale - Home"
           >
-            <div
-              className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
-                isLight
-                  ? "bg-teal-700 text-white shadow-sm group-hover:bg-teal-800 group-hover:scale-105"
-                  : "bg-teal-500/15 border border-teal-500/30 text-teal-300 group-hover:border-teal-400 group-hover:shadow-[0_0_12px_rgba(20,184,166,0.3)] group-hover:scale-105"
-              }`}
-            >
-              <Code2 className="w-4 h-4" />
+            <div className="w-8 h-8 rounded-xl overflow-hidden flex items-center justify-center transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_0_15px_rgba(20,184,166,0.5)]">
+              <img src="/favicon.svg" alt="Developer Code Logo" className="w-full h-full object-contain" />
             </div>
+            <span className="hidden sm:inline-block font-mono font-bold text-xs tracking-widest text-teal-400/90 group-hover:text-teal-300 transition-colors">
+              PRATIKSHA
+            </span>
           </button>
 
           {/* Desktop Navigation Links with 21st.dev Active Capsule Pill */}

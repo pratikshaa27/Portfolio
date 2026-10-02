@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
@@ -12,13 +14,11 @@ interface ResumeModalProps {
 }
 
 export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
-  const [profilePhoto, setProfilePhoto] = React.useState<string | null>(() => {
-    return localStorage.getItem("pratiksha_profile_photo") || null;
-  });
+  const [profilePhoto, setProfilePhoto] = React.useState<string | null>(null);
   const [isDownloading, setIsDownloading] = React.useState(false);
 
   React.useEffect(() => {
-    if (isOpen) {
+    if (typeof window !== "undefined") {
       setProfilePhoto(localStorage.getItem("pratiksha_profile_photo") || null);
     }
   }, [isOpen]);

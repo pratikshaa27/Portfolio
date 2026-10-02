@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useRef, useState, MouseEvent, ReactNode } from "react";
 import { motion } from "motion/react";
 
@@ -14,10 +16,10 @@ export const MagneticButton: React.FC<MagneticButtonProps> = ({
   onClick,
   strength = 0.35,
 }) => {
-  const buttonRef = useRef<HTMLButtonElement>(null);
+  const buttonRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
-  const handleMouseMove = (e: MouseEvent<HTMLButtonElement>) => {
+  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
     if (!buttonRef.current) return;
     const { left, top, width, height } = buttonRef.current.getBoundingClientRect();
     const centerX = left + width / 2;
@@ -32,17 +34,17 @@ export const MagneticButton: React.FC<MagneticButtonProps> = ({
   };
 
   return (
-    <motion.button
+    <motion.div
       ref={buttonRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onClick={onClick}
       animate={{ x: position.x, y: position.y }}
       transition={{ type: "spring", stiffness: 350, damping: 18, mass: 0.5 }}
-      className={`relative inline-flex items-center justify-center cursor-pointer ${className}`}
+      className={`relative inline-flex items-center justify-center ${className}`}
     >
       {children}
-    </motion.button>
+    </motion.div>
   );
 };
 

@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="codeBg" cx="50%" cy="35%" r="75%">
+      <stop offset="0%" stop-color="#0D252B"/>
+      <stop offset="60%" stop-color="#061216"/>
+      <stop offset="100%" stop-color="#020608"/>
+    </radialGradient>
+
+    <!-- Neon Teal-Cyan Gradient for Brackets -->
+    <linearGradient id="neonTealCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2DD4BF"/>
+      <stop offset="50%" stop-color="#06B6D4"/>
+      <stop offset="100%" stop-color="#38BDF8"/>
+    </linearGradient>
+
+    <!-- Neon Cyan-Sky Gradient for Forward Slash -->
+    <linearGradient id="neonSlash" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="50%" stop-color="#06B6D4"/>
+      <stop offset="100%" stop-color="#2DD4BF"/>
+    </linearGradient>
+
+    <!-- Specular Border Gradient -->
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2DD4BF" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#06B6D4" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0.8"/>
+    </linearGradient>
+
+    <!-- Soft Glow Filter -->
+    <filter id="bracketGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Squircle Base -->
+  <rect x="24" y="24" width="464" height="464" rx="120" 
+        fill="url(#codeBg)" 
+        stroke="url(#borderGrad)" 
+        stroke-width="8"/>
+
+  <!-- Pure Developer Code Brackets: < / > -->
+  <g filter="url(#bracketGlow)">
+    <!-- Left Bracket: < -->
+    <path d="M 175 145 L 85 256 L 175 367" 
+          fill="none" 
+          stroke="url(#neonTealCyan)" 
+          stroke-width="46" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"/>
+
+    <!-- Center Slash: / -->
+    <line x1="295" y1="130" x2="217" y2="382" 
+          stroke="url(#neonSlash)" 
+          stroke-width="42" 
+          stroke-linecap="round"/>
+
+    <!-- Right Bracket: > -->
+    <path d="M 337 145 L 427 256 L 337 367" 
+          fill="none" 
+          stroke="url(#neonTealCyan)" 
+          stroke-width="46" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"/>
+  </g>
+</svg>

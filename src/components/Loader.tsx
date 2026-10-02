@@ -241,10 +241,29 @@ export default function Loader({ onComplete }: LoaderProps) {
   const loaderRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
-  // 2600ms Counter countdown
+  const handleSkip = useCallback(() => {
+    setIsExiting(true);
+    setTimeout(() => {
+      setIsDone(true);
+      onComplete();
+    }, 450);
+  }, [onComplete]);
+
+  // Keyboard shortcut to skip
   useEffect(() => {
-    const duration = 2600;
-    const intervalTime = 25;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" || e.key === " " || e.key === "Enter") {
+        handleSkip();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [handleSkip]);
+
+  // Snappy Counter countdown (1100ms total)
+  useEffect(() => {
+    const duration = 1100;
+    const intervalTime = 20;
     const steps = duration / intervalTime;
     const increment = 100 / steps;
     let currentVal = 0;
@@ -254,10 +273,9 @@ export default function Loader({ onComplete }: LoaderProps) {
       if (currentVal >= 100) {
         setCount(100);
         clearInterval(timer);
-        // Begin the cinematic exit sequence
         setTimeout(() => {
           setIsExiting(true);
-        }, 300);
+        }, 100);
       } else {
         setCount(Math.floor(currentVal));
       }
@@ -270,20 +288,19 @@ export default function Loader({ onComplete }: LoaderProps) {
   useEffect(() => {
     if (!isExiting) return;
 
-    // After exit animations play, mark as done
     const exitTimer = setTimeout(() => {
       setIsDone(true);
       onComplete();
-    }, 1100); // Matches the longest exit animation duration
+    }, 650);
 
     return () => clearTimeout(exitTimer);
   }, [isExiting, onComplete]);
 
-  // Words rotation every 600ms during loading
+  // Words rotation every 300ms during loading
   useEffect(() => {
     const wordTimer = setInterval(() => {
       setWordIndex((prev) => (prev + 1) % words.length);
-    }, 600);
+    }, 300);
 
     return () => clearInterval(wordTimer);
   }, []);
@@ -306,18 +323,29 @@ export default function Loader({ onComplete }: LoaderProps) {
             y: "0%",
           }}
           transition={isExiting ? {
-            duration: 1.0,
+            duration: 0.65,
             ease: [0.76, 0, 0.24, 1],
           } : undefined}
           style={{
-            background: `radial-gradient(circle at 50% 50%, rgba(20, 184, 166, ${0.06 + (count / 100) * 0.18}) 0%, rgba(6, 182, 212, ${0.02 + (count / 100) * 0.08}) 40%, #060e11 100%)`,
+            backgroundColor: "#060e11",
+            background: `radial-gradient(circle at 50% 50%, rgba(20, 184, 166, ${0.15 + (count / 100) * 0.2}) 0%, rgba(6, 182, 212, ${0.08 + (count / 100) * 0.1}) 45%, #060e11 80%), #060e11`,
             borderBottomLeftRadius: "0%",
             borderBottomRightRadius: "0%",
           }}
-          className="fixed inset-0 z-[9999] flex flex-col justify-between p-8 md:p-16 select-none overflow-hidden"
+          className="fixed inset-0 z-[9999] bg-[#060e11] flex flex-col justify-between p-8 md:p-16 select-none overflow-hidden"
         >
           {/* Subtle Grid overlay for high-tech aesthetic */}
           <div className="absolute inset-0 bg-[linear-gradient(rgba(20,184,166,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(20,184,166,0.03)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
+
+          {/* Quick Skip Button */}
+          <div className="absolute top-6 right-6 z-50">
+            <button
+              onClick={handleSkip}
+              className="text-[11px] font-mono tracking-widest text-teal-400/60 hover:text-teal-300 uppercase px-3 py-1 rounded-full border border-teal-500/20 bg-teal-950/40 backdrop-blur-sm transition-all cursor-pointer hover:border-teal-400/50"
+            >
+              Skip [Esc]
+            </button>
+          </div>
 
           {/* ─── Content that scales up and blurs on exit (21st.dev Preloader pattern) ─── */}
           <motion.div
